@@ -1,0 +1,20 @@
+{
+  "name": "@journal/mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "journal-mcp": "./src/server.mjs"
+  },
+  "exports": {
+    ".": "./src/server.mjs"
+  },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^3.24.1"
+  }
+}

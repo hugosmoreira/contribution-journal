@@ -1,0 +1,35 @@
+node_modules/
+.next/
+.cache/
+# Per-file test cache dirs (see packages/*/test — parallel workers must not
+# share a cache tree). Cleaned up by the tests, but a crashed run leaves them.
+.cache-test-*/
+*.tsbuildinfo
+next-env.d.ts
+
+# Secrets. .env.local holds a live Anthropic API key and the agent-capture
+# token; every variant is excluded so a differently-named file can't slip out.
+.env
+.env.local
+.env*.local
+.env.production
+.env.development
+
+# Build, test and editor noise
+*.log
+coverage/
+playwright-report/
+test-results/
+.turbo/
+.vercel/
+.DS_Store
+.idea/
+
+# The cancelled week-0 journaling experiment. Kept on disk as a record, not
+# published: it is a dead end, and its paste-in prompts contain absolute
+# paths from the machine it was written on.
+journal/
+
+# Maintainer-private notes (business analysis, session handoffs) — on disk,
+# never published.
+private/

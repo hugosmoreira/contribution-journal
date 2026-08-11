@@ -1,0 +1,20 @@
+# Netlify deployment for the Next.js app in apps/web.
+# The Next runtime plugin handles server components, server actions,
+# streaming/Suspense, and the OG-image route.
+#
+# Required environment variables (Site settings -> Environment variables):
+#   DATABASE_URL          - hosted Postgres (Supabase/Neon), for publishing + sign-in
+#   JOURNAL_CACHE_DIR     - /tmp/journal-cache  (serverless filesystems are read-only)
+#   GITHUB_TOKEN          - read-only PAT, raises GitHub imports from 60 to 5,000/hour
+#   ANTHROPIC_API_KEY     - AI drafting (omit to run evidence-only maps)
+#   METRICS_SALT          - any long random string
+#   JOURNAL_SECRET        - 32+ chars, encrypts stored OAuth tokens
+#   GITHUB_OAUTH_CLIENT_ID / GITHUB_OAUTH_CLIENT_SECRET - sign-in (optional)
+# See apps/web/.env.example for the full list.
+
+[build]
+  command = "npm run build"
+  publish = "apps/web/.next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

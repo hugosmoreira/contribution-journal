@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-b329d09a-0742-46db-9589-2ea1296f54e6/styles.css">
+<script src="_ds/modernist-b329d09a-0742-46db-9589-2ea1296f54e6/_ds_bundle.js"></script>
+<style>
+body{margin:0;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);text-wrap:pretty;-webkit-font-smoothing:antialiased}
+a{color:var(--color-accent-700)}a:hover{color:var(--color-accent-600)}
+.input::placeholder{color:var(--color-neutral-600)}
+</style>
+</helmet>
+
+<nav class="nav" style="background:var(--color-bg);padding-block:14px;padding-inline:max(clamp(24px,5vw,72px),calc((100% - 1200px)/2 + clamp(24px,5vw,72px)))" data-screen-label="Navigation">
+  <span class="nav-brand" style="display:inline-flex;align-items:center;gap:10px;font-size:17px;letter-spacing:-0.01em"><span style="width:12px;height:12px;background:var(--color-accent);flex:none"></span>Contribution Journal</span>
+  <a href="#how-it-works">How it works</a>
+  <a href="#example">Example story</a>
+  <a href="#accessibility">Accessibility</a>
+  <a href="#about">About</a>
+  <a href="#github">GitHub</a>
+  <a href="#create" class="btn btn-primary" style="text-decoration:none">Create a story</a>
+</nav>
+
+<main style="max-width:1200px;margin:0 auto;padding:0 clamp(24px,5vw,72px)">
+
+<section id="create" data-screen-label="Hero" style="padding:88px 0 64px">
+  <sc-if value="{{ stdHead }}" hint-placeholder-val="{{ true }}">
+    <h1 style="font-size:clamp(44px,6vw,80px);line-height:1.05;letter-spacing:-0.02em;margin:0 0 0 -0.058em"><span style="display:block">Understand the work,</span><span style="display:block">not just the diff.</span></h1>
+  </sc-if>
+  <sc-if value="{{ altHead }}" hint-placeholder-val="{{ false }}">
+    <h1 style="font-size:clamp(40px,5.4vw,72px);line-height:1.05;letter-spacing:-0.02em;margin:0 0 0 -0.058em"><span style="display:block">AI can write the code.</span><span style="display:block">You should still understand it.</span></h1>
+  </sc-if>
+  <p style="font-size:18px;line-height:1.6;color:var(--color-neutral-800);max-width:56ch;margin:28px 0 0">Turn GitHub issues and pull requests into visual, evidence-backed stories you can understand, explain, and remember.</p>
+
+  <div style="margin:40px 0 0;max-width:960px">
+    <label for="cj-url" style="display:block;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-neutral-700);margin:0 0 8px">GitHub issue or pull-request URL</label>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:stretch">
+      <input id="cj-url" class="input" type="url" placeholder="github.com/owner/repository/pull/456" style="flex:1;min-width:320px;min-height:54px;font-size:16px;padding:12px 16px;font-feature-settings:'tnum' 1">
+      <button type="button" class="btn btn-primary" style="font-size:16px;padding:14px 24px;min-height:54px">Create learning story</button>
+    </div>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center;margin:16px 0 0">
+      <div class="seg" role="radiogroup" aria-label="What are you adding?" style="background:var(--color-bg)">
+        <label class="seg-opt" style="padding:9px 14px"><input type="radio" name="cj-kind"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"></circle></svg>Issue</label>
+        <label class="seg-opt" style="padding:9px 14px"><input type="radio" name="cj-kind"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg>Pull request</label>
+        <label class="seg-opt" style="padding:9px 14px"><input type="radio" name="cj-kind" defaultChecked="{{ true }}">Detect automatically</label>
+      </div>
+      <a href="#example" class="btn btn-ghost" style="font-size:15px">Explore an example</a>
+    </div>
+    <p style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--color-neutral-700);margin:20px 0 0"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Read-only. Evidence-linked. Nothing is published without you.</p>
+  </div>
+
+  <sc-if value="{{ glimpseOn }}" hint-placeholder-val="{{ true }}">
+  <div style="margin:56px 0 0;background:var(--color-surface);border:1px solid var(--color-neutral-300);padding:20px 24px 24px">
+    <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline;margin:0 0 20px">
+      <span style="font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-neutral-700)">From URL to lesson — one story, nine steps</span>
+      <span style="display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--color-neutral-800)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M15 7h2a5 5 0 1 1 0 10h-2"></path><line x1="8" x2="16" y1="12" y2="12"></line></svg>14 evidence links</span>
+    </div>
+    <div style="position:relative">
+      <div style="position:absolute;left:5px;right:5px;top:4px;height:1px;background:var(--color-neutral-400)"></div>
+      <div style="display:flex;justify-content:space-between;gap:8px">
+        <div style="flex:1"><div style="width:10px;height:10px;background:var(--color-text)"></div><div style="font-size:11px;color:var(--color-neutral-800);margin:8px 0 0">Issue reported</div></div>
+        <div style="flex:1"><div style="width:10px;height:10px;background:var(--color-text)"></div><div style="font-size:11px;color:var(--color-neutral-800);margin:8px 0 0">Problem clarified</div></div>
+        <div style="flex:1"><div style="width:10px;height:10px;background:var(--color-text)"></div><div style="font-size:11px;color:var(--color-neutral-800);margin:8px 0 0">Approaches weighed</div></div>
+        <div style="flex:1"><div style="width:10px;height:10px;background:var(--color-text)"></div><div style="font-size:11px;color:var(--color-neutral-800);margin:8px 0 0">PR opened</div></div>
+        <div style="flex:1"><div style="width:10px;height:10px;background:var(--color-text)"></div><div style="font-size:11px;color:var(--color-neutral-800);margin:8px 0 0">Review feedback</div></div>
+        <div style="flex:1"><div style="width:10px;height:10px;background:var(--color-text)"></div><div style="font-size:11px;color:var(--color-neutral-800);margin:8px 0 0">Solution revised</div></div>
+        <div style="flex:1"><div style="width:10px;height:10px;background:var(--color-text)"></div><div style="font-size:11px;color:var(--color-neutral-800);margin:8px 0 0">Tests passed</div></div>
+        <div style="flex:1"><div style="width:10px;height:10px;background:var(--color-text)"></div><div style="font-size:11px;color:var(--color-neutral-800);margin:8px 0 0">Merged</div></div>
+        <div style="flex:none"><div style="width:10px;height:10px;background:var(--color-accent)"></div><div style="font-size:11px;font-weight:600;margin:8px 0 0">Lesson recorded</div></div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+</section>
+
+<div style="height:2px;background:var(--color-divider)"></div>
+
+<section data-screen-label="Product preview" style="padding:72px 0">
+  <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700);font-feature-settings:'tnum' 1">The artifact</span>
+  <h2 style="font-size:clamp(30px,3.4vw,42px);line-height:1.08;letter-spacing:-0.015em;margin:14px 0 0">One story, reconstructed from the record.</h2>
+  <p style="font-size:16px;line-height:1.65;color:var(--color-neutral-800);max-width:60ch;margin:18px 0 0">Contribution Journal reads the issue, the pull request, and every comment, commit, review and check between them — then rebuilds the work as a story a person can follow.</p>
+
+  <div style="margin:40px 0 0;background:var(--color-surface);border:1px solid var(--color-neutral-300)" class="elev-md">
+    <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-start;padding:24px 28px;border-bottom:2px solid var(--color-divider)">
+      <div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin:0 0 10px">
+          <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border:1px solid var(--color-neutral-400);background:var(--color-bg);font-size:11px;font-feature-settings:'tnum' 1"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"></circle></svg>Issue #4821</span>
+          <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border:1px solid var(--color-neutral-400);background:var(--color-bg);font-size:11px;font-feature-settings:'tnum' 1"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg>PR #4907</span>
+          <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 9px;background:var(--color-text);color:var(--color-bg);font-size:11px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M6 21V9a9 9 0 0 0 9 9"></path></svg>Merged</span>
+        </div>
+        <h3 style="font-size:24px;line-height:1.15;letter-spacing:-0.01em;margin:0;max-width:26ch">Duplicate webhook deliveries under overlapping retries</h3>
+      </div>
+      <div style="display:grid;gap:6px;font-size:11px;color:var(--color-neutral-800)">
+        <span style="display:inline-flex;align-items:center;gap:6px"><span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border:1px solid var(--color-neutral-400);background:var(--color-bg)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M15 7h2a5 5 0 1 1 0 10h-2"></path><line x1="8" x2="16" y1="12" y2="12"></line></svg>Evidence</span>links to the GitHub source</span>
+        <span style="display:inline-flex;align-items:center;gap:6px"><span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;background:var(--color-text);color:var(--color-bg)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Confirmed</span>verified by a person</span>
+        <span style="display:inline-flex;align-items:center;gap:6px"><span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border:1px dashed var(--color-neutral-600);color:var(--color-neutral-800)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 6v12"></path><path d="M17.196 9 6.804 15"></path><path d="m6.804 9 10.392 6"></path></svg>AI draft</span>awaiting your review</span>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:0">
+      <div style="border-right:1px solid var(--color-neutral-300);padding:28px 24px">
+        <div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);margin:0 0 18px">Timeline</div>
+        <div style="border-left:2px solid var(--color-neutral-400);display:grid;gap:22px;padding:2px 0">
+          <div style="padding-left:18px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:10px;height:10px;background:var(--color-text)"></span><div style="font-size:13px;font-weight:600">Issue reported</div><div style="font-size:11px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">Mar 3 · 3 integrators affected</div></div>
+          <div style="padding-left:18px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:10px;height:10px;background:var(--color-text)"></span><div style="font-size:13px;font-weight:600">Problem clarified</div><div style="font-size:11px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">11 comments · repro confirmed</div></div>
+          <div style="padding-left:18px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:10px;height:10px;background:var(--color-text)"></span><div style="font-size:13px;font-weight:600">Approaches weighed</div><div style="font-size:11px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">2 considered · 1 rejected</div></div>
+          <div style="padding-left:18px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:10px;height:10px;background:var(--color-text)"></span><div style="font-size:13px;font-weight:600">Pull request opened</div><div style="font-size:11px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">Mar 6 · 4 commits</div></div>
+          <div style="padding-left:18px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:10px;height:10px;background:var(--color-text)"></span><div style="font-size:13px;font-weight:600">Review feedback</div><div style="font-size:11px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">1 blocking comment</div></div>
+          <div style="padding-left:18px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:10px;height:10px;background:var(--color-text)"></span><div style="font-size:13px;font-weight:600">Solution revised</div><div style="font-size:11px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">2 commits in response</div></div>
+          <div style="padding-left:18px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:10px;height:10px;background:var(--color-text)"></span><div style="font-size:13px;font-weight:600">Tests passed</div><div style="font-size:11px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">214 checks · 48 h soak</div></div>
+          <div style="padding-left:18px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:10px;height:10px;background:var(--color-text)"></span><div style="font-size:13px;font-weight:600">Merged</div><div style="font-size:11px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">Mar 9 · v2.41.0</div></div>
+          <div style="padding-left:18px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:10px;height:10px;background:var(--color-accent)"></span><div style="font-size:13px;font-weight:600">Lesson recorded</div><div style="font-size:11px;color:var(--color-neutral-700)">Confirmed by you</div></div>
+        </div>
+      </div>
+
+      <div style="padding:28px 32px;display:grid;gap:28px;align-content:start">
+        <div>
+          <div style="display:flex;align-items:baseline;gap:10px;margin:0 0 8px"><span style="font-size:13px;font-weight:800;font-family:var(--font-heading);font-feature-settings:'tnum' 1">01</span><h4 style="font-size:16px;margin:0">The problem</h4></div>
+          <p style="font-size:14.5px;line-height:1.6;color:var(--color-neutral-800);margin:0 0 10px;max-width:64ch">Customers behind flaky networks received the same webhook two or three times. Retries fired while the original delivery was still in flight — and nothing deduplicated them.</p>
+          <div style="display:flex;gap:6px;flex-wrap:wrap"><span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border:1px solid var(--color-neutral-400);background:var(--color-bg);font-size:11px;font-feature-settings:'tnum' 1"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M15 7h2a5 5 0 1 1 0 10h-2"></path><line x1="8" x2="16" y1="12" y2="12"></line></svg>Issue #4821</span><span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border:1px solid var(--color-neutral-400);background:var(--color-bg);font-size:11px;font-feature-settings:'tnum' 1"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>3 user reports</span></div>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:baseline;gap:10px;margin:0 0 10px"><span style="font-size:13px;font-weight:800;font-family:var(--font-heading);font-feature-settings:'tnum' 1">02</span><h4 style="font-size:16px;margin:0">Approaches considered</h4></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div style="background:var(--color-bg);border:1px solid var(--color-neutral-400);padding:14px 16px">
+              <div style="display:flex;justify-content:space-between;gap:8px;align-items:center;margin:0 0 6px"><span style="font-size:13.5px;font-weight:600">In-memory delivery lock</span><span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border:1px solid var(--color-accent-700);color:var(--color-accent-700);font-size:11px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>Rejected</span></div>
+              <p style="font-size:12.5px;line-height:1.55;color:var(--color-neutral-800);margin:0">A mutex in the worker dies with the worker. Two nodes, two locks — the duplicate survives.</p>
+            </div>
+            <div style="background:var(--color-bg);border:1px solid var(--color-neutral-400);padding:14px 16px">
+              <div style="display:flex;justify-content:space-between;gap:8px;align-items:center;margin:0 0 6px"><span style="font-size:13.5px;font-weight:600">Persisted idempotency key</span><span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;background:var(--color-text);color:var(--color-bg);font-size:11px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Chosen</span></div>
+              <p style="font-size:12.5px;line-height:1.55;color:var(--color-neutral-800);margin:0">A unique constraint the database enforces survives crashes and scale-out alike.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:baseline;gap:10px;margin:0 0 8px"><span style="font-size:13px;font-weight:800;font-family:var(--font-heading);font-feature-settings:'tnum' 1">03</span><h4 style="font-size:16px;margin:0">What the review changed</h4></div>
+          <div style="border-left:3px solid var(--color-accent);padding:2px 0 2px 14px;margin:0 0 10px">
+            <p style="font-size:14px;line-height:1.55;margin:0;max-width:62ch">“The unique index alone doesn’t close the window. If we crash between insert and send, the retry still slips through — make the state write and the send share one transaction.”</p>
+            <div style="font-size:11px;color:var(--color-neutral-700);margin:6px 0 0">@priya — requested changes</div>
+          </div>
+          <p style="font-size:13px;line-height:1.55;color:var(--color-neutral-800);margin:0 0 8px">In response: delivery state moved into the send transaction; an outbox status column added.</p>
+          <div style="display:flex;gap:6px;flex-wrap:wrap"><span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border:1px solid var(--color-neutral-400);background:var(--color-bg);font-size:11px;font-feature-settings:'tnum' 1"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M15 7h2a5 5 0 1 1 0 10h-2"></path><line x1="8" x2="16" y1="12" y2="12"></line></svg>Review thread</span><span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border:1px solid var(--color-neutral-400);background:var(--color-bg);font-size:11px;font-feature-settings:'tnum' 1"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><line x1="3" x2="9" y1="12" y2="12"></line><line x1="15" x2="21" y1="12" y2="12"></line></svg>Commit 9f3c2e1</span></div>
+        </div>
+
+        <div>
+          <div style="display:flex;align-items:baseline;gap:10px;margin:0 0 8px"><span style="font-size:13px;font-weight:800;font-family:var(--font-heading);font-feature-settings:'tnum' 1">04</span><h4 style="font-size:16px;margin:0">The lesson</h4></div>
+          <div style="background:var(--color-bg);border:1px solid var(--color-neutral-400);padding:16px 18px">
+            <p style="font-family:var(--font-heading);font-weight:800;font-size:17px;line-height:1.35;letter-spacing:-0.01em;margin:0 0 10px;max-width:48ch">Deduplicate in storage, not in memory. A constraint the database enforces survives every crash your code doesn’t.</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+              <span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;background:var(--color-text);color:var(--color-bg);font-size:11px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Confirmed by you</span>
+              <sc-if value="{{ aiOn }}" hint-placeholder-val="{{ true }}"><span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border:1px dashed var(--color-neutral-600);color:var(--color-neutral-800);font-size:11px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 6v12"></path><path d="M17.196 9 6.804 15"></path><path d="m6.804 9 10.392 6"></path></svg>Draft rationale — review pending</span></sc-if>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="height:2px;background:var(--color-divider)"></div>
+</main>
+
+<section id="about" data-screen-label="The human problem" style="background:var(--color-text);color:var(--color-bg)">
+  <div style="max-width:1200px;margin:0 auto;padding:80px clamp(24px,5vw,72px) 88px">
+    <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-400)">The human problem</span>
+    <h2 style="font-size:clamp(32px,3.8vw,52px);line-height:1.06;letter-spacing:-0.015em;margin:16px 0 0 -0.058em;max-width:20ch">Software is being produced faster than people can understand it.</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 64px;margin:52px 0 0">
+      <div style="border-top:2px solid var(--color-neutral-700);padding:20px 0 0"><h3 style="font-size:19px;margin:0 0 8px;color:var(--color-bg)">Activity is preserved. Understanding is not.</h3><p style="font-size:15px;line-height:1.65;color:var(--color-neutral-300);margin:0;max-width:48ch">GitHub records every event, forever. The reasoning that connects those events lives in people’s heads — and it leaves when they do.</p></div>
+      <div style="border-top:2px solid var(--color-neutral-700);padding:20px 0 0"><h3 style="font-size:19px;margin:0 0 8px;color:var(--color-bg)">Working code can skip the learning.</h3><p style="font-size:15px;line-height:1.65;color:var(--color-neutral-300);margin:0;max-width:48ch">An AI agent can close an issue without anyone on the team understanding why the fix is right. The knowledge was never transferred, because it was never held.</p></div>
+      <div style="border-top:2px solid var(--color-neutral-700);padding:20px 0 0"><h3 style="font-size:19px;margin:0 0 8px;color:var(--color-bg)">The reasoning is scattered.</h3><p style="font-size:15px;line-height:1.65;color:var(--color-neutral-300);margin:0;max-width:48ch">Why a change happened is split across an issue thread, four review comments, a commit message and a CI log. Nobody reads all of it twice.</p></div>
+      <div style="border-top:2px solid var(--color-neutral-700);padding:20px 0 0"><h3 style="font-size:19px;margin:0 0 8px;color:var(--color-bg)">Work ends unexplained.</h3><p style="font-size:15px;line-height:1.65;color:var(--color-neutral-300);margin:0;max-width:48ch">Contributors finish real work they cannot yet explain — which means they cannot reuse it, teach it, or defend it.</p></div>
+    </div>
+    <div style="margin:64px 0 0;max-width:760px">
+      <div style="border:1px solid var(--color-neutral-700);padding:16px 20px;display:flex;justify-content:space-between;gap:16px;align-items:baseline"><span style="font-size:15px;font-weight:600">Human understanding</span><span style="font-size:12px;color:var(--color-neutral-400)">what you can explain and reuse</span></div>
+      <div style="background:var(--color-accent);color:var(--color-bg);padding:16px 20px;display:flex;justify-content:space-between;gap:16px;align-items:baseline;margin:10px 0"><span style="font-family:var(--font-heading);font-weight:800;font-size:16px;letter-spacing:-0.01em">Contribution Journal — the learning layer</span><span style="font-size:12px">evidence in, understanding out</span></div>
+      <div style="border:1px solid var(--color-neutral-700);padding:16px 20px;display:flex;justify-content:space-between;gap:16px;align-items:baseline"><span style="font-size:15px;font-weight:600">GitHub activity</span><span style="font-size:12px;color:var(--color-neutral-400)">issues · comments · commits · reviews · checks</span></div>
+    </div>
+    <p style="font-size:14px;line-height:1.65;color:var(--color-neutral-400);margin:28px 0 0;max-width:60ch">None of this is an argument against AI. It is the reason understanding now has to be deliberate.</p>
+  </div>
+</section>
+
+<main style="max-width:1200px;margin:0 auto;padding:0 clamp(24px,5vw,72px)">
+
+<section id="how-it-works" data-screen-label="How it works" style="padding:72px 0">
+  <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700)">How it works</span>
+  <h2 style="font-size:clamp(30px,3.4vw,42px);line-height:1.08;letter-spacing:-0.015em;margin:14px 0 0">Three steps from URL to understanding.</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px;margin:48px 0 0">
+    <div>
+      <div style="height:2px;background:var(--color-divider);position:relative"><span style="position:absolute;left:0;top:-4px;width:10px;height:10px;background:var(--color-accent)"></span></div>
+      <div style="font-family:var(--font-heading);font-weight:800;font-size:14px;font-feature-settings:'tnum' 1;margin:18px 0 6px">01</div>
+      <h3 style="font-size:24px;letter-spacing:-0.01em;margin:0 0 8px">Paste</h3>
+      <p style="font-size:15px;line-height:1.65;color:var(--color-neutral-800);margin:0 0 18px;max-width:36ch">Add a GitHub issue or pull-request URL.</p>
+      <div style="background:var(--color-surface);border:1px solid var(--color-neutral-300);padding:16px">
+        <div style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-neutral-700);margin:0 0 6px">GitHub URL</div>
+        <div style="background:var(--color-bg);border:1px solid var(--color-neutral-400);padding:9px 12px;font-size:12.5px;font-feature-settings:'tnum' 1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">github.com/lumen-ui/lumen/pull/2287</div>
+        <div style="display:flex;gap:6px;margin:10px 0 0"><span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;background:var(--color-text);color:var(--color-bg);font-size:11px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg>Detected: pull request</span><span style="display:inline-flex;align-items:center;padding:2px 8px;border:1px solid var(--color-neutral-400);background:var(--color-bg);font-size:11px;font-feature-settings:'tnum' 1">+ linked issue #2210</span></div>
+      </div>
+    </div>
+    <div>
+      <div style="height:2px;background:var(--color-divider);position:relative"><span style="position:absolute;left:0;top:-4px;width:10px;height:10px;background:var(--color-accent)"></span></div>
+      <div style="font-family:var(--font-heading);font-weight:800;font-size:14px;font-feature-settings:'tnum' 1;margin:18px 0 6px">02</div>
+      <h3 style="font-size:24px;letter-spacing:-0.01em;margin:0 0 8px">Understand</h3>
+      <p style="font-size:15px;line-height:1.65;color:var(--color-neutral-800);margin:0 0 18px;max-width:36ch">Explore the problem, discussion, implementation, review and outcome.</p>
+      <div style="background:var(--color-surface);border:1px solid var(--color-neutral-300);padding:16px;display:grid;gap:8px">
+        <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;background:var(--color-bg);border:1px solid var(--color-neutral-400);padding:8px 12px"><span style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600"><span style="width:8px;height:8px;background:var(--color-text)"></span>Problem</span><span style="font-size:11px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">3 reports</span></div>
+        <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;background:var(--color-bg);border:1px solid var(--color-neutral-400);padding:8px 12px"><span style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600"><span style="width:8px;height:8px;background:var(--color-text)"></span>Discussion</span><span style="font-size:11px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">11 comments</span></div>
+        <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;background:var(--color-bg);border:1px solid var(--color-neutral-400);padding:8px 12px"><span style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600"><span style="width:8px;height:8px;background:var(--color-text)"></span>Implementation</span><span style="font-size:11px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">6 commits</span></div>
+        <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;background:var(--color-bg);border:1px solid var(--color-neutral-400);padding:8px 12px"><span style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600"><span style="width:8px;height:8px;background:var(--color-text)"></span>Review</span><span style="font-size:11px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">1 blocking</span></div>
+        <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;background:var(--color-bg);border:1px solid var(--color-neutral-400);padding:8px 12px"><span style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600"><span style="width:8px;height:8px;background:var(--color-accent)"></span>Outcome</span><span style="font-size:11px;color:var(--color-neutral-700)">merged</span></div>
+      </div>
+    </div>
+    <div>
+      <div style="height:2px;background:var(--color-divider);position:relative"><span style="position:absolute;left:0;top:-4px;width:10px;height:10px;background:var(--color-accent)"></span></div>
+      <div style="font-family:var(--font-heading);font-weight:800;font-size:14px;font-feature-settings:'tnum' 1;margin:18px 0 6px">03</div>
+      <h3 style="font-size:24px;letter-spacing:-0.01em;margin:0 0 8px">Make it yours</h3>
+      <p style="font-size:15px;line-height:1.65;color:var(--color-neutral-800);margin:0 0 18px;max-width:36ch">Correct the draft, connect evidence, record the lesson and share when ready.</p>
+      <div style="background:var(--color-surface);border:1px solid var(--color-neutral-300);padding:16px;display:grid;gap:12px">
+        <div style="background:var(--color-bg);border:1px solid var(--color-neutral-400);padding:10px 12px;font-size:12.5px;line-height:1.5"><span style="text-decoration:line-through;color:var(--color-neutral-600)">the backoff was misconfigured</span> <span style="font-weight:600">retries overlapped by design</span></div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap"><span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;background:var(--color-text);color:var(--color-bg);font-size:11px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Corrected by you</span><span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border:1px solid var(--color-neutral-400);background:var(--color-bg);font-size:11px;font-feature-settings:'tnum' 1"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M15 7h2a5 5 0 1 1 0 10h-2"></path><line x1="8" x2="16" y1="12" y2="12"></line></svg>12 evidence links</span></div>
+        <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;border-top:1px solid var(--color-neutral-300);padding:12px 0 0"><span style="font-size:12.5px;color:var(--color-neutral-800)">Visibility</span><span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border:1px solid var(--color-text);font-size:11px;font-weight:600"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Private — share when ready</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="height:2px;background:var(--color-divider)"></div>
+
+<section data-screen-label="Two entry points" style="padding:72px 0">
+  <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700)">Two entry points</span>
+  <h2 style="font-size:clamp(30px,3.4vw,42px);line-height:1.08;letter-spacing:-0.015em;margin:14px 0 0;max-width:24ch">An issue and a pull request are halves of the same story.</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;margin:48px 0 0">
+    <div style="border:1px solid var(--color-neutral-400);background:var(--color-surface)">
+      <div style="display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:2px solid var(--color-divider)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"></circle></svg><span style="font-family:var(--font-heading);font-weight:800;font-size:17px">Issue</span><span style="font-size:12px;color:var(--color-neutral-700);margin-left:auto">where the why lives</span></div>
+      <div style="padding:8px 20px 16px">
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="width:7px;height:7px;background:var(--color-text);flex:none"></span><span style="font-size:14.5px">Problem</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="width:7px;height:7px;background:var(--color-text);flex:none"></span><span style="font-size:14.5px">Context</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="width:7px;height:7px;background:var(--color-text);flex:none"></span><span style="font-size:14.5px">Affected users</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="width:7px;height:7px;background:var(--color-text);flex:none"></span><span style="font-size:14.5px">Discussion</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="width:7px;height:7px;background:var(--color-text);flex:none"></span><span style="font-size:14.5px">Constraints</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="width:7px;height:7px;background:var(--color-text);flex:none"></span><span style="font-size:14.5px">Proposed approaches</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 0"><span style="width:7px;height:7px;background:var(--color-text);flex:none"></span><span style="font-size:14.5px">Open questions</span></div>
+      </div>
+    </div>
+    <div style="border:1px solid var(--color-neutral-400);background:var(--color-surface)">
+      <div style="display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:2px solid var(--color-divider)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg><span style="font-family:var(--font-heading);font-weight:800;font-size:17px">Pull request</span><span style="font-size:12px;color:var(--color-neutral-700);margin-left:auto">where the how lives</span></div>
+      <div style="padding:8px 20px 16px">
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="width:7px;height:7px;background:var(--color-text);flex:none"></span><span style="font-size:14.5px">Implementation</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="width:7px;height:7px;background:var(--color-text);flex:none"></span><span style="font-size:14.5px">Commits</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="width:7px;height:7px;background:var(--color-text);flex:none"></span><span style="font-size:14.5px">Review feedback</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="width:7px;height:7px;background:var(--color-text);flex:none"></span><span style="font-size:14.5px">Revisions</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="width:7px;height:7px;background:var(--color-text);flex:none"></span><span style="font-size:14.5px">Tests</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="width:7px;height:7px;background:var(--color-text);flex:none"></span><span style="font-size:14.5px">Validation</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 0"><span style="width:7px;height:7px;background:var(--color-text);flex:none"></span><span style="font-size:14.5px">Outcome</span></div>
+      </div>
+    </div>
+  </div>
+  <div style="position:relative;height:88px">
+    <svg width="100%" height="88" viewBox="0 0 1000 88" preserveAspectRatio="none" style="display:block" aria-hidden="true">
+      <path d="M250 0 V36 H750 V0" fill="none" stroke="var(--color-divider)" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+      <path d="M500 36 V88" fill="none" stroke="var(--color-divider)" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+    </svg>
+    <span style="position:absolute;left:50%;top:36px;transform:translate(-50%,-50%);width:14px;height:14px;background:var(--color-accent)"></span>
+  </div>
+  <div style="background:var(--color-text);color:var(--color-bg);padding:28px 36px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center">
+    <h3 style="font-size:clamp(20px,2.2vw,27px);letter-spacing:-0.01em;margin:0;color:var(--color-bg)">One evidence-backed learning story.</h3>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border:1px solid var(--color-neutral-600);font-size:11.5px;font-feature-settings:'tnum' 1"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M15 7h2a5 5 0 1 1 0 10h-2"></path><line x1="8" x2="16" y1="12" y2="12"></line></svg>12 evidence links</span>
+      <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 10px;background:var(--color-bg);color:var(--color-text);font-size:11.5px;font-feature-settings:'tnum' 1"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>5 sections confirmed</span>
+      <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border:1px dashed var(--color-neutral-500);font-size:11.5px;font-feature-settings:'tnum' 1"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 6v12"></path><path d="M17.196 9 6.804 15"></path><path d="m6.804 9 10.392 6"></path></svg>2 drafts awaiting you</span>
+    </div>
+  </div>
+</section>
+
+<div style="height:2px;background:var(--color-divider)"></div>
+
+<section data-screen-label="Learning experience" style="padding:72px 0">
+  <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700)">The learning experience</span>
+  <h2 style="font-size:clamp(30px,3.4vw,42px);line-height:1.08;letter-spacing:-0.015em;margin:14px 0 0">Active understanding, not passive summary.</h2>
+  <p style="font-size:16px;line-height:1.65;color:var(--color-neutral-800);max-width:60ch;margin:18px 0 0">AI drafts the explanation. You question it, correct it, answer for it — and that is where the learning happens.</p>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:44px 0 0">
+    <div style="background:var(--color-surface);border:1px solid var(--color-neutral-300);padding:20px">
+      <div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);margin:0 0 12px">Plain language, on demand</div>
+      <p style="font-size:14px;line-height:1.6;margin:0 0 10px">“The fix gives every delivery a fingerprint. If the same delivery is attempted twice, the database refuses the second copy.”</p>
+      <p style="font-size:12.5px;line-height:1.6;color:var(--color-neutral-700);margin:0 0 12px">Technical version: inserts carry an idempotency key with a unique constraint, failing closed inside the send transaction.</p>
+      <span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border:1px solid var(--color-neutral-400);background:var(--color-bg);font-size:11px">Glossary: <span style="border-bottom:1px dashed var(--color-neutral-600);font-weight:600">idempotent</span></span>
+    </div>
+    <div style="background:var(--color-surface);border:1px solid var(--color-neutral-300);padding:20px">
+      <div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);margin:0 0 12px">Ask the story</div>
+      <div style="display:grid;gap:8px">
+        <span style="border:1px solid var(--color-neutral-400);background:var(--color-bg);padding:8px 12px;font-size:13px">Why did this change?</span>
+        <span style="border:1px solid var(--color-neutral-400);background:var(--color-bg);padding:8px 12px;font-size:13px">What approach was rejected?</span>
+        <span style="border:1px solid var(--color-text);background:var(--color-bg);padding:8px 12px;font-size:13px;font-weight:600">What would have happened without the fix?</span>
+      </div>
+      <p style="font-size:12.5px;line-height:1.6;color:var(--color-neutral-800);margin:12px 0 0">Every duplicate webhook re-ran customer automations — refunds fired twice. <span style="display:inline-flex;align-items:center;gap:4px;padding:1px 6px;border:1px solid var(--color-neutral-400);background:var(--color-bg);font-size:10.5px;vertical-align:1px;font-feature-settings:'tnum' 1"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M15 7h2a5 5 0 1 1 0 10h-2"></path><line x1="8" x2="16" y1="12" y2="12"></line></svg>#4821</span></p>
+    </div>
+    <div style="background:var(--color-surface);border:1px solid var(--color-neutral-300);padding:20px">
+      <div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);margin:0 0 12px">Teach it back</div>
+      <div style="background:var(--color-bg);border:1px solid var(--color-neutral-400);padding:10px 12px;font-size:13px;line-height:1.55;min-height:64px">Dedup lives in the database, not the worker — the unique key makes retries safe even across crashes.</div>
+      <div style="display:flex;gap:6px;margin:10px 0 0"><span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;background:var(--color-text);color:var(--color-bg);font-size:11px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Saved to your journal</span></div>
+    </div>
+    <div style="background:var(--color-surface);border:1px solid var(--color-neutral-300);padding:20px">
+      <div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);margin:0 0 12px">Check yourself</div>
+      <p style="font-size:13.5px;font-weight:600;line-height:1.5;margin:0 0 10px">What prevents the duplicate send after a crash?</p>
+      <div style="display:grid;gap:8px" role="radiogroup" aria-label="Comprehension check">
+        <label class="radio" style="font-size:13px"><input type="radio" name="cj-quiz"><span class="dot"></span>The worker mutex</label>
+        <label class="radio" style="font-size:13px"><input type="radio" name="cj-quiz" defaultChecked="{{ true }}"><span class="dot"></span>The unique constraint in the send transaction</label>
+        <label class="radio" style="font-size:13px"><input type="radio" name="cj-quiz"><span class="dot"></span>The retry backoff</label>
+      </div>
+    </div>
+    <div style="background:var(--color-surface);border:1px solid var(--color-neutral-300);padding:20px">
+      <div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);margin:0 0 12px">Counterfactuals, answered</div>
+      <div style="display:grid;gap:8px">
+        <div style="border-left:3px solid var(--color-neutral-400);padding:2px 0 2px 10px;font-size:13px;line-height:1.55"><span style="font-weight:600">Rejected:</span> in-memory lock — dies with the process.</div>
+        <div style="border-left:3px solid var(--color-neutral-400);padding:2px 0 2px 10px;font-size:13px;line-height:1.55"><span style="font-weight:600">Without the fix:</span> duplicates return at the next network wobble.</div>
+        <div style="border-left:3px solid var(--color-accent);padding:2px 0 2px 10px;font-size:13px;line-height:1.55"><span style="font-weight:600">Why this one:</span> correctness enforced by storage, not discipline.</div>
+      </div>
+    </div>
+    <div style="background:var(--color-surface);border:1px solid var(--color-neutral-300);padding:20px">
+      <div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);margin:0 0 12px">Lessons that resurface</div>
+      <div style="display:grid;gap:10px">
+        <div style="display:flex;gap:10px;align-items:baseline"><span style="width:7px;height:7px;background:var(--color-accent);flex:none;transform:translateY(-1px)"></span><div><div style="font-size:13.5px;font-weight:600;line-height:1.4">Deduplicate in storage, not memory.</div><div style="font-size:11px;color:var(--color-neutral-700)">resurfaces in 2 weeks</div></div></div>
+        <div style="display:flex;gap:10px;align-items:baseline"><span style="width:7px;height:7px;background:var(--color-text);flex:none;transform:translateY(-1px)"></span><div><div style="font-size:13.5px;font-weight:600;line-height:1.4">Reviews are requirements in disguise.</div><div style="font-size:11px;color:var(--color-neutral-700)">from PR #4907</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="height:2px;background:var(--color-divider)"></div>
+
+<section data-screen-label="Trust and provenance" style="padding:72px 0">
+  <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700)">Trust &amp; provenance</span>
+  <h2 style="font-size:clamp(30px,3.4vw,42px);line-height:1.08;letter-spacing:-0.015em;margin:14px 0 0">Every claim can show its receipt.</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin:44px 0 0">
+    <div style="border:1px solid var(--color-neutral-400);padding:20px;background:var(--color-bg)">
+      <div style="font-size:14.5px;font-weight:600;margin:0 0 10px">Claims link to evidence</div>
+      <p style="font-size:13px;line-height:1.6;color:var(--color-neutral-800);margin:0 0 12px">Retries fired while delivery was in flight <span style="display:inline-flex;align-items:center;gap:4px;padding:1px 6px;border:1px solid var(--color-neutral-400);font-size:10.5px;vertical-align:1px;font-feature-settings:'tnum' 1"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M15 7h2a5 5 0 1 1 0 10h-2"></path><line x1="8" x2="16" y1="12" y2="12"></line></svg>#4821 · comment 7</span></p>
+      <p style="font-size:12px;line-height:1.6;color:var(--color-neutral-700);margin:0">Every factual sentence can point at the issue, comment, commit, review or check it came from.</p>
+    </div>
+    <div style="border:1px solid var(--color-neutral-400);padding:20px;background:var(--color-bg)">
+      <div style="font-size:14.5px;font-weight:600;margin:0 0 10px">Inference is marked</div>
+      <div style="margin:0 0 12px"><span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border:1px dashed var(--color-neutral-600);color:var(--color-neutral-800);font-size:11px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 6v12"></path><path d="M17.196 9 6.804 15"></path><path d="m6.804 9 10.392 6"></path></svg>Inferred — no direct source</span></div>
+      <p style="font-size:12px;line-height:1.6;color:var(--color-neutral-700);margin:0">AI-generated content is never presented as confirmed truth. What was read and what was reasoned stay visibly different.</p>
+    </div>
+    <div style="border:1px solid var(--color-neutral-400);padding:20px;background:var(--color-bg)">
+      <div style="font-size:14.5px;font-weight:600;margin:0 0 10px">You can correct every draft</div>
+      <p style="font-size:13px;line-height:1.6;margin:0 0 12px"><span style="text-decoration:line-through;color:var(--color-neutral-600)">a caching bug</span> <span style="font-weight:600">a delivery-dedup gap</span> <span style="display:inline-flex;align-items:center;gap:4px;padding:1px 6px;background:var(--color-text);color:var(--color-bg);font-size:10.5px;vertical-align:1px"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Corrected</span></p>
+      <p style="font-size:12px;line-height:1.6;color:var(--color-neutral-700);margin:0">Your corrections outrank the draft — and the story records that a person checked.</p>
+    </div>
+    <div style="border:1px solid var(--color-neutral-400);padding:20px;background:var(--color-bg)">
+      <div style="display:flex;align-items:center;gap:8px;font-size:14.5px;font-weight:600;margin:0 0 10px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Read-only access</div>
+      <p style="font-size:12px;line-height:1.6;color:var(--color-neutral-700);margin:0">Contribution Journal can look at public GitHub activity. It cannot write, comment, or touch your repositories.</p>
+    </div>
+    <div style="border:1px solid var(--color-neutral-400);padding:20px;background:var(--color-bg)">
+      <div style="font-size:14.5px;font-weight:600;margin:0 0 10px">Private by default</div>
+      <div style="margin:0 0 12px"><span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border:1px solid var(--color-text);font-size:11px;font-weight:600"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Private</span></div>
+      <p style="font-size:12px;line-height:1.6;color:var(--color-neutral-700);margin:0">Nothing becomes public automatically. Publishing is a decision you make, story by story.</p>
+    </div>
+    <div style="border:1px solid var(--color-neutral-400);padding:20px;background:var(--color-bg)">
+      <div style="font-size:14.5px;font-weight:600;margin:0 0 10px">Yours to delete</div>
+      <p style="font-size:12px;line-height:1.6;color:var(--color-neutral-700);margin:0 0 12px">Delete a story and its drafts disappear with it — completely, including from us.</p>
+      <span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border:1px solid var(--color-accent-700);color:var(--color-accent-700);font-size:11px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>Delete story</span>
+    </div>
+  </div>
+</section>
+
+<div style="height:2px;background:var(--color-divider)"></div>
+
+<section id="accessibility" data-screen-label="Accessibility" style="padding:72px 0">
+  <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700)">Accessibility</span>
+  <h2 style="font-size:clamp(30px,3.6vw,46px);line-height:1.08;letter-spacing:-0.015em;margin:14px 0 0;max-width:24ch">Understanding should not depend on how someone sees, moves, reads or processes information.</h2>
+  <p style="font-size:16px;line-height:1.65;color:var(--color-neutral-800);max-width:60ch;margin:18px 0 0">Every story exists in equivalent forms. The map is never the only way in.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:44px 0 0">
+    <div style="background:var(--color-surface);border:1px solid var(--color-neutral-300);padding:20px">
+      <div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);margin:0 0 18px">The same story, as a map</div>
+      <div style="display:flex;align-items:center;gap:0">
+        <span style="border:1px solid var(--color-neutral-400);background:var(--color-bg);padding:7px 12px;font-size:12.5px;font-weight:600;flex:none">Problem</span>
+        <span style="height:1px;background:var(--color-neutral-500);flex:1;min-width:14px"></span>
+        <span style="position:relative;border:1px solid var(--color-neutral-400);background:var(--color-bg);padding:7px 12px;font-size:12.5px;font-weight:600;flex:none">Two approaches<span style="position:absolute;left:50%;top:100%;width:1px;height:22px;background:var(--color-neutral-500)"></span></span>
+        <span style="height:1px;background:var(--color-neutral-500);flex:1;min-width:14px"></span>
+        <span style="border:1px solid var(--color-text);background:var(--color-bg);padding:7px 12px;font-size:12.5px;font-weight:600;flex:none">Focus stack</span>
+        <span style="height:1px;background:var(--color-neutral-500);flex:1;min-width:14px"></span>
+        <span style="background:var(--color-text);color:var(--color-bg);padding:7px 12px;font-size:12.5px;font-weight:600;flex:none">Merged</span>
+      </div>
+      <div style="margin:30px 0 0 0;display:flex;justify-content:center"><span style="display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border:1px dashed var(--color-accent-700);color:var(--color-accent-700);font-size:11.5px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>Sentinels — rejected: doubled tab stops</span></div>
+    </div>
+    <div style="background:var(--color-surface);border:1px solid var(--color-neutral-300);padding:20px">
+      <div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);margin:0 0 14px">The same story, as structured text</div>
+      <ol style="margin:0;padding:0 0 0 20px;font-size:13.5px;line-height:1.75;color:var(--color-neutral-800)">
+        <li>Problem: focus escaped the nested dialog.</li>
+        <li>Two approaches were considered.<ol style="padding:0 0 0 18px;margin:0"><li>Sentinel elements — rejected: doubled tab stops.</li><li>A focus stack — chosen.</li></ol></li>
+        <li>The focus stack was implemented and merged.</li>
+      </ol>
+      <p style="font-size:11.5px;color:var(--color-neutral-700);margin:14px 0 0">Also available as a chronological reading view, fully keyboard-navigable, described for screen readers.</p>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 48px;margin:36px 0 0;max-width:880px">
+    <div style="display:flex;gap:10px;align-items:baseline;font-size:14.5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none;transform:translateY(1px)" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Visual maps, with structured-text equivalents</div>
+    <div style="display:flex;gap:10px;align-items:baseline;font-size:14.5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none;transform:translateY(1px)" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>High-contrast presentation</div>
+    <div style="display:flex;gap:10px;align-items:baseline;font-size:14.5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none;transform:translateY(1px)" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>A chronological reading view</div>
+    <div style="display:flex;gap:10px;align-items:baseline;font-size:14.5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none;transform:translateY(1px)" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Reduced motion, always available</div>
+    <div style="display:flex;gap:10px;align-items:baseline;font-size:14.5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none;transform:translateY(1px)" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Full keyboard navigation</div>
+    <div style="display:flex;gap:10px;align-items:baseline;font-size:14.5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none;transform:translateY(1px)" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Plain-language explanations</div>
+    <div style="display:flex;gap:10px;align-items:baseline;font-size:14.5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none;transform:translateY(1px)" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Screen-reader-friendly descriptions</div>
+    <div style="display:flex;gap:10px;align-items:baseline;font-size:14.5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none;transform:translateY(1px)" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Zoom and responsive reflow</div>
+    <div style="display:flex;gap:10px;align-items:baseline;font-size:14.5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none;transform:translateY(1px)" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Meaning never carried by color alone</div>
+    <div style="display:flex;gap:10px;align-items:baseline;font-size:14.5px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex:none;transform:translateY(1px)" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Calm, specific error and loading language</div>
+  </div>
+</section>
+
+<div style="height:2px;background:var(--color-divider)"></div>
+
+<section id="example" data-screen-label="Example story" style="padding:72px 0">
+  <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700)">An example, end to end</span>
+  <h2 style="font-size:clamp(30px,3.4vw,42px);line-height:1.08;letter-spacing:-0.015em;margin:14px 0 0;max-width:26ch">Keyboard focus escapes the nested dialog.</h2>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 0">
+    <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border:1px solid var(--color-neutral-400);background:var(--color-bg);font-size:11px;font-feature-settings:'tnum' 1">lumen-ui / lumen</span>
+    <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border:1px solid var(--color-neutral-400);background:var(--color-bg);font-size:11px;font-feature-settings:'tnum' 1"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"></circle></svg>Issue #2210</span>
+    <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border:1px solid var(--color-neutral-400);background:var(--color-bg);font-size:11px;font-feature-settings:'tnum' 1"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg>PR #2287</span>
+    <span style="display:inline-flex;align-items:center;gap:5px;padding:3px 9px;background:var(--color-text);color:var(--color-bg);font-size:11px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M6 21V9a9 9 0 0 0 9 9"></path></svg>Merged</span>
+  </div>
+  <div style="margin:36px 0 0;border-top:2px solid var(--color-divider)">
+    <div style="display:grid;grid-template-columns:minmax(120px,180px) 1fr;gap:16px 40px;padding:22px 0;border-bottom:1px solid var(--color-neutral-300)">
+      <div style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:3px">The problem</div>
+      <div style="font-size:15.5px;line-height:1.65;max-width:68ch">With one dialog open above another, <kbd style="font-family:inherit;border:1px solid var(--color-neutral-400);padding:0 5px;font-size:13px">Tab</kbd> moved focus behind the backdrop into the page. Screen-reader users lost their place entirely; keyboard users could not get back. <span style="display:inline-flex;align-items:center;gap:4px;padding:1px 6px;border:1px solid var(--color-neutral-400);font-size:10.5px;vertical-align:1px;font-feature-settings:'tnum' 1"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M15 7h2a5 5 0 1 1 0 10h-2"></path><line x1="8" x2="16" y1="12" y2="12"></line></svg>#2210</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(120px,180px) 1fr;gap:16px 40px;padding:22px 0;border-bottom:1px solid var(--color-neutral-300)">
+      <div style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:3px">Considered</div>
+      <div style="font-size:15.5px;line-height:1.65;max-width:68ch">Sentinel elements around each dialog that bounce focus back — or a single focus manager that tracks open dialogs as a stack.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(120px,180px) 1fr;gap:16px 40px;padding:22px 0;border-bottom:1px solid var(--color-neutral-300)">
+      <div style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:3px">Rejected, because</div>
+      <div style="font-size:15.5px;line-height:1.65;max-width:68ch">Sentinels doubled tab stops and confused screen readers — it would have traded one audience’s bug for another’s. <span style="display:inline-flex;align-items:center;gap:4px;padding:1px 6px;border:1px solid var(--color-accent-700);color:var(--color-accent-700);font-size:10.5px;vertical-align:1px"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>Rejected</span> <span style="display:inline-flex;align-items:center;gap:4px;padding:1px 6px;border:1px solid var(--color-neutral-400);font-size:10.5px;vertical-align:1px">comment · @osei</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(120px,180px) 1fr;gap:16px 40px;padding:22px 0;border-bottom:1px solid var(--color-neutral-300)">
+      <div style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:3px">The review said</div>
+      <div style="font-size:15.5px;line-height:1.65;max-width:68ch"><span style="border-left:3px solid var(--color-accent);padding-left:12px;display:block">“Restoring focus to the body loses the user’s place. Restore to the element that opened the dialog — and test the close path, not just the open.” <span style="font-size:12px;color:var(--color-neutral-700)">— @tan, review</span></span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(120px,180px) 1fr;gap:16px 40px;padding:22px 0;border-bottom:1px solid var(--color-neutral-300)">
+      <div style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:3px">What changed</div>
+      <div style="font-size:15.5px;line-height:1.65;max-width:68ch">One focus stack for the whole app: each layer records its opener, traps <kbd style="font-family:inherit;border:1px solid var(--color-neutral-400);padding:0 5px;font-size:13px">Tab</kbd> inside the top layer, and hands focus back to the opener on close. <span style="display:inline-flex;align-items:center;gap:4px;padding:1px 6px;border:1px solid var(--color-neutral-400);font-size:10.5px;vertical-align:1px;font-feature-settings:'tnum' 1">4 commits · +212 −96</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(120px,180px) 1fr;gap:16px 40px;padding:22px 0;border-bottom:1px solid var(--color-neutral-300)">
+      <div style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:3px">Validated by</div>
+      <div style="font-size:15.5px;line-height:1.65;max-width:68ch">A keyboard walkthrough script and an axe audit in CI; a manual pass with VoiceOver and NVDA. <span style="display:inline-flex;align-items:center;gap:4px;padding:1px 6px;border:1px solid var(--color-neutral-400);font-size:10.5px;vertical-align:1px;font-feature-settings:'tnum' 1">CI · all checks passed</span></div>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(120px,180px) 1fr;gap:16px 40px;padding:22px 0;border-bottom:2px solid var(--color-divider)">
+      <div style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);padding-top:3px">The lesson</div>
+      <div><p style="font-family:var(--font-heading);font-weight:800;font-size:20px;line-height:1.35;letter-spacing:-0.01em;margin:0 0 10px;max-width:44ch">Model modality as a stack. Every layer must know who opened it — focus is state, not markup.</p><span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;background:var(--color-text);color:var(--color-bg);font-size:11px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Confirmed by the author</span></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<sc-if value="{{ closeRed }}" hint-placeholder-val="{{ true }}">
+<section id="github" data-screen-label="Final call to action" style="background:var(--color-accent);color:var(--color-bg)">
+  <div style="max-width:1200px;margin:0 auto;padding:84px clamp(24px,5vw,72px) 88px">
+    <h2 style="font-size:clamp(34px,4.2vw,58px);line-height:1.06;letter-spacing:-0.015em;margin:0 0 0 -0.058em;color:var(--color-bg);max-width:20ch"><span style="display:block">Your next pull request should leave you</span><span style="display:block">with more than merged code.</span></h2>
+    <p style="font-size:17px;line-height:1.6;margin:26px 0 0;max-width:52ch">Turn the work into something you can understand, explain and remember.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin:36px 0 0;max-width:860px">
+      <input class="input" type="url" aria-label="GitHub issue or pull-request URL" placeholder="github.com/owner/repository/pull/456" style="flex:1;min-width:300px;min-height:54px;font-size:16px;padding:12px 16px;background:var(--color-bg);border:1px solid var(--color-bg);color:var(--color-text);font-feature-settings:'tnum' 1">
+      <button type="button" class="btn" style="background:var(--color-bg);color:var(--color-text);font-size:16px;padding:14px 24px;min-height:54px">Create learning story</button>
+    </div>
+    <p style="display:flex;align-items:center;gap:8px;font-size:13px;margin:20px 0 0"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Read-only. Evidence-linked. Nothing is published without you.</p>
+  </div>
+</section>
+</sc-if>
+<sc-if value="{{ closeInk }}" hint-placeholder-val="{{ false }}">
+<section id="github-ink" data-screen-label="Final call to action" style="background:var(--color-text);color:var(--color-bg)">
+  <div style="max-width:1200px;margin:0 auto;padding:84px clamp(24px,5vw,72px) 88px">
+    <h2 style="font-size:clamp(34px,4.2vw,58px);line-height:1.06;letter-spacing:-0.015em;margin:0 0 0 -0.058em;color:var(--color-bg);max-width:20ch"><span style="display:block">Your next pull request should leave you</span><span style="display:block">with more than merged code.</span></h2>
+    <p style="font-size:17px;line-height:1.6;margin:26px 0 0;max-width:52ch;color:var(--color-neutral-300)">Turn the work into something you can understand, explain and remember.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin:36px 0 0;max-width:860px">
+      <input class="input" type="url" aria-label="GitHub issue or pull-request URL" placeholder="github.com/owner/repository/pull/456" style="flex:1;min-width:300px;min-height:54px;font-size:16px;padding:12px 16px;background:var(--color-bg);border:1px solid var(--color-bg);color:var(--color-text);font-feature-settings:'tnum' 1">
+      <button type="button" class="btn btn-primary" style="font-size:16px;padding:14px 24px;min-height:54px">Create learning story</button>
+    </div>
+    <p style="display:flex;align-items:center;gap:8px;font-size:13px;margin:20px 0 0;color:var(--color-neutral-300)"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Read-only. Evidence-linked. Nothing is published without you.</p>
+  </div>
+</section>
+</sc-if>
+
+<footer style="max-width:1200px;margin:0 auto;padding:36px clamp(24px,5vw,72px) 56px;display:flex;gap:16px 32px;flex-wrap:wrap;align-items:baseline;font-size:13px;color:var(--color-neutral-700)">
+  <span style="display:inline-flex;align-items:center;gap:8px;color:var(--color-text);font-family:var(--font-heading);font-weight:800;font-size:14px"><span style="width:9px;height:9px;background:var(--color-accent)"></span>Contribution Journal</span>
+  <a href="#how-it-works" style="color:inherit">How it works</a>
+  <a href="#example" style="color:inherit">Example story</a>
+  <a href="#accessibility" style="color:inherit">Accessibility</a>
+  <a href="#about" style="color:inherit">About</a>
+  <a href="#github" style="color:inherit">GitHub</a>
+  <span style="margin-left:auto">Read-only GitHub access · evidence-linked by design</span>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;headline&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;work-not-diff&quot;, &quot;options&quot;: [&quot;work-not-diff&quot;, &quot;ai-can-write&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Copy&quot;},
+  &quot;heroGlimpse&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Hero&quot;},
+  &quot;aiMarkers&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Provenance&quot;},
+  &quot;closeField&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;red&quot;, &quot;options&quot;: [&quot;red&quot;, &quot;ink&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Close&quot;}
+}">
+class Component extends DCLogic {
+  renderVals() {
+    const h = this.props.headline ?? 'work-not-diff';
+    const close = this.props.closeField ?? 'red';
+    return {
+      stdHead: h !== 'ai-can-write',
+      altHead: h === 'ai-can-write',
+      glimpseOn: this.props.heroGlimpse ?? true,
+      aiOn: this.props.aiMarkers ?? true,
+      closeRed: close !== 'ink',
+      closeInk: close === 'ink'
+    };
+  }
+}
+</script>
+</body>
+</html>

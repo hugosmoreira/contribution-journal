@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+body{margin:0;background:#0A0D14;color:#EDEFF5;font-family:'IBM Plex Sans',system-ui,sans-serif;text-wrap:pretty;-webkit-font-smoothing:antialiased}
+a{color:#9CC2FF}a:hover{color:#C3DAFF}
+::selection{background:rgba(125,177,255,0.35)}
+:focus{outline:none}
+:focus-visible{outline:2px solid #7DB1FF;outline-offset:2px}
+</style>
+</helmet>
+
+<main style="max-width:1380px;margin:0 auto;padding:0 clamp(28px,4vw,72px)">
+
+<header data-screen-label="Cover" style="padding:72px 0 56px">
+  <span style="display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px"><svg width="19" height="19" viewBox="0 0 21 21" aria-hidden="true"><circle cx="5" cy="15.5" r="3" fill="#7DB1FF"></circle><circle cx="16" cy="5" r="2.6" fill="none" stroke="#7DB1FF" stroke-width="1.6"></circle><path d="M7.2 13.2 13.9 7" stroke="#7DB1FF" stroke-width="1.6"></path></svg>Contribution Journal</span>
+  <h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(44px,5.4vw,80px);line-height:1.03;letter-spacing:-0.015em;margin:28px 0 0"><span style="display:block">Design direction</span><span style="display:block;font-style:italic;color:#C9D4EA">&amp; mobile concept.</span></h1>
+  <p style="font-size:18px;line-height:1.7;color:#A9B1C3;max-width:62ch;margin:26px 0 0">The dark editorial system behind the landing page — typography, the five semantic states, layering and spacing, timeline treatment, accessible interaction states, and the page at phone width.</p>
+</header>
+
+<section data-screen-label="Creative direction" style="border-top:1px solid rgba(255,255,255,0.1);padding:64px 0">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8FB8FF">01 · Creative direction</div>
+  <h2 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(30px,3vw,44px);line-height:1.08;margin:18px 0 0;max-width:30ch">A reading room for engineering work — <span style="font-style:italic">serif thought, mono evidence.</span></h2>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 56px;margin:44px 0 0">
+    <div style="border-top:1px solid rgba(255,255,255,0.14);padding:20px 0 0"><div style="font-size:17px;font-weight:600;margin:0 0 8px">Two voices, one page</div><p style="font-size:15px;line-height:1.7;color:#A9B1C3;margin:0">Newsreader carries the human layer — claims, quotes, lessons. IBM Plex Mono carries the machine layer — refs, counts, provenance. The reader always knows which one is speaking.</p></div>
+    <div style="border-top:1px solid rgba(255,255,255,0.14);padding:20px 0 0"><div style="font-size:17px;font-weight:600;margin:0 0 8px">Deeply layered, never glowing</div><p style="font-size:15px;line-height:1.7;color:#A9B1C3;margin:0">Four dark surfaces separated by hairlines and faint graph grids — depth from tone, not blur or bloom. Panels sit in the ground like plates on a desk.</p></div>
+    <div style="border-top:1px solid rgba(255,255,255,0.14);padding:20px 0 0"><div style="font-size:17px;font-weight:600;margin:0 0 8px">Color is semantics only</div><p style="font-size:15px;line-height:1.7;color:#A9B1C3;margin:0">Blue, green, violet, amber and red appear exclusively as states — evidence, confirmed, AI-drafted, review, rejected — each paired with a shape and a label so hue is never the only carrier.</p></div>
+  </div>
+</section>
+
+<section data-screen-label="Typography" style="border-top:1px solid rgba(255,255,255,0.1);padding:64px 0">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8FB8FF">02 · Typography</div>
+  <div style="margin:36px 0 0;border-top:1px solid rgba(255,255,255,0.14)">
+    <div style="display:grid;grid-template-columns:250px 1fr;gap:28px;align-items:baseline;padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.08)"><div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#78829A">Display · Newsreader 500 · 56–106px · 1.02</div><div style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(38px,4.4vw,64px);line-height:1.02;letter-spacing:-0.015em">Understand the work, <span style="font-style:italic;color:#C9D4EA">not just the diff.</span></div></div>
+    <div style="display:grid;grid-template-columns:250px 1fr;gap:28px;align-items:baseline;padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.08)"><div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#78829A">Section head · Newsreader 500 · 36–54px</div><div style="font-family:'Newsreader',serif;font-weight:500;font-size:38px;line-height:1.06">Every claim can show its receipt.</div></div>
+    <div style="display:grid;grid-template-columns:250px 1fr;gap:28px;align-items:baseline;padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.08)"><div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#78829A">Quote / lesson · Newsreader italic</div><div style="font-family:'Newsreader',serif;font-style:italic;font-size:22px;line-height:1.5;color:#DDE2EE;max-width:52ch">“Make the state write and the send share one transaction.”</div></div>
+    <div style="display:grid;grid-template-columns:250px 1fr;gap:28px;align-items:baseline;padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.08)"><div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#78829A">Body · Plex Sans 400 · 16–19px · 1.65</div><div style="font-size:17px;line-height:1.65;color:#C9D0E0;max-width:60ch">Turn GitHub issues and pull requests into visual, evidence-backed stories you can understand, explain, and remember.</div></div>
+    <div style="display:grid;grid-template-columns:250px 1fr;gap:28px;align-items:baseline;padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.08)"><div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#78829A">Kicker · Plex Mono · 12.5px · caps 0.16em</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8FB8FF">Trust &amp; provenance</div></div>
+    <div style="display:grid;grid-template-columns:250px 1fr;gap:28px;align-items:baseline;padding:24px 0;border-bottom:1px solid rgba(255,255,255,0.14)"><div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#78829A">Ref chip · Plex Mono · 12–12.5px</div><div><span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border:1px solid rgba(125,177,255,0.4);color:#9CC2FF;background:rgba(125,177,255,0.07);border-radius:5px;font-family:'IBM Plex Mono',monospace;font-size:12.5px"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M15 7h2a5 5 0 1 1 0 10h-2"></path><line x1="8" x2="16" y1="12" y2="12"></line></svg>Issue #4821 · comment 7</span></div></div>
+  </div>
+  <p style="font-size:14px;line-height:1.7;color:#78829A;max-width:70ch;margin:24px 0 0">Nothing on the page sits below 12px. Reading measures hold at 50–68ch; line height 1.65–1.7 for body, 1.02–1.1 for display.</p>
+</section>
+
+<section data-screen-label="Color and semantics" style="border-top:1px solid rgba(255,255,255,0.1);padding:64px 0">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8FB8FF">03 · Color &amp; the five semantic states</div>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;margin:36px 0 0">
+    <div style="width:158px"><div style="height:76px;background:#0A0D14;border:1px solid rgba(255,255,255,0.14);border-radius:6px"></div><div style="font-size:13.5px;font-weight:600;margin:9px 0 0">Ground</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#78829A">#0A0D14</div></div>
+    <div style="width:158px"><div style="height:76px;background:#0D1119;border:1px solid rgba(255,255,255,0.14);border-radius:6px"></div><div style="font-size:13.5px;font-weight:600;margin:9px 0 0">Band</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#78829A">#0D1119</div></div>
+    <div style="width:158px"><div style="height:76px;background:#10151F;border:1px solid rgba(255,255,255,0.14);border-radius:6px"></div><div style="font-size:13.5px;font-weight:600;margin:9px 0 0">Panel</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#78829A">#10151F</div></div>
+    <div style="width:158px"><div style="height:76px;background:#0C111C;border:1px solid rgba(255,255,255,0.14);border-radius:6px"></div><div style="font-size:13.5px;font-weight:600;margin:9px 0 0">Well (inside panels)</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#78829A">#0C111C</div></div>
+    <div style="width:158px"><div style="height:76px;background:#EDEFF5;border-radius:6px"></div><div style="font-size:13.5px;font-weight:600;margin:9px 0 0">Ink · text &amp; primary</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#78829A">#EDEFF5</div></div>
+    <div style="width:158px"><div style="height:76px;display:grid;grid-template-columns:repeat(3,1fr);border-radius:6px;overflow:hidden"><div style="background:#C9D0E0"></div><div style="background:#A9B1C3"></div><div style="background:#78829A"></div></div><div style="font-size:13.5px;font-weight:600;margin:9px 0 0">Muted steps</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#78829A">#C9D0E0 · #A9B1C3 · #78829A</div></div>
+  </div>
+  <div style="margin:44px 0 0;border-top:1px solid rgba(255,255,255,0.14)">
+    <div style="display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:center;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.08)"><span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border:1px solid rgba(125,177,255,0.4);color:#9CC2FF;background:rgba(125,177,255,0.07);border-radius:5px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;justify-self:start"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M15 7h2a5 5 0 1 1 0 10h-2"></path><line x1="8" x2="16" y1="12" y2="12"></line></svg>Evidence</span><p style="font-size:14.5px;line-height:1.65;color:#A9B1C3;margin:0"><span style="color:#9CC2FF;font-family:'IBM Plex Mono',monospace;font-size:13px">Blue #7DB1FF</span> · solid border + link mark + ref. Ties a claim to its GitHub source. Also the interactive hue: links, focus ring, selection.</p></div>
+    <div style="display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:center;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.08)"><span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border:1px solid rgba(91,208,139,0.45);color:#7FDCA4;background:rgba(91,208,139,0.08);border-radius:5px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;justify-self:start"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Confirmed</span><p style="font-size:14.5px;line-height:1.65;color:#A9B1C3;margin:0"><span style="color:#7FDCA4;font-family:'IBM Plex Mono',monospace;font-size:13px">Green #5BD08B</span> · solid border + check. Verified by a person, or by passing validation. The strongest state on the page.</p></div>
+    <div style="display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:center;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.08)"><span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border:1px dashed rgba(178,148,245,0.55);color:#C4ACF8;background:rgba(178,148,245,0.07);border-radius:5px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;justify-self:start"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 6v12"></path><path d="M17.196 9 6.804 15"></path><path d="m6.804 9 10.392 6"></path></svg>AI draft</span><p style="font-size:14.5px;line-height:1.65;color:#A9B1C3;margin:0"><span style="color:#C4ACF8;font-family:'IBM Plex Mono',monospace;font-size:13px">Violet #B294F5</span> · dashed border + asterisk. Drafted by AI, awaiting review — visually provisional by construction.</p></div>
+    <div style="display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:center;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.08)"><span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border:1px dotted rgba(233,184,96,0.6);color:#E9C27C;background:rgba(233,184,96,0.06);border-radius:5px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;justify-self:start"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 6v12"></path><path d="M17.196 9 6.804 15"></path><path d="m6.804 9 10.392 6"></path></svg>Inferred / review</span><p style="font-size:14.5px;line-height:1.65;color:#A9B1C3;margin:0"><span style="color:#E9C27C;font-family:'IBM Plex Mono',monospace;font-size:13px">Amber #E9B860</span> · dotted border. Reasoned without a direct source; also marks review feedback on timelines and quote bars.</p></div>
+    <div style="display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:center;padding:18px 0;border-bottom:1px solid rgba(255,255,255,0.14)"><span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border:1px solid rgba(242,109,118,0.45);color:#F49099;background:rgba(242,109,118,0.07);border-radius:5px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;justify-self:start"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>Rejected</span><p style="font-size:14.5px;line-height:1.65;color:#A9B1C3;margin:0"><span style="color:#F49099;font-family:'IBM Plex Mono',monospace;font-size:13px">Red #F26D76</span> · solid border + cross. Abandoned approaches and destructive actions. Never used for emphasis.</p></div>
+  </div>
+  <p style="font-size:14px;line-height:1.7;color:#78829A;max-width:70ch;margin:24px 0 0">Each state = hue + border style (solid / dashed / dotted) + mark + written label. Strip the color and the meaning survives. Tints stay under 12% opacity; the primary action is ink-on-dark, so semantic hues never compete with the CTA.</p>
+</section>
+
+<section data-screen-label="Layout and timelines" style="border-top:1px solid rgba(255,255,255,0.1);padding:64px 0">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8FB8FF">04 · Layering, spacing &amp; timelines</div>
+  <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:36px 48px;margin:36px 0 0">
+    <div><div style="font-family:'Newsreader',serif;font-weight:500;font-size:30px">1360px</div><p style="font-size:14px;line-height:1.65;color:#A9B1C3;margin:8px 0 0">Content column; sections at 96px rhythm, separated by 1px hairlines — no background jumps except the band surfaces.</p></div>
+    <div><div style="font-family:'Newsreader',serif;font-weight:500;font-size:30px">4 layers</div><p style="font-size:14px;line-height:1.65;color:#A9B1C3;margin:8px 0 0">Ground → band → panel → well. Each step ≈3% lighter; borders do the separating, shadows appear once, under the story artifact.</p></div>
+    <div><div style="font-family:'Newsreader',serif;font-weight:500;font-size:30px">72px grid</div><p style="font-size:14px;line-height:1.65;color:#A9B1C3;margin:8px 0 0">Faint graph lines (3% white) sit behind the hero and the close only — the product's coordinate system, not a texture.</p></div>
+    <div><div style="font-family:'Newsreader',serif;font-weight:500;font-size:30px">6–12px radius</div><p style="font-size:14px;line-height:1.65;color:#A9B1C3;margin:8px 0 0">Soft, consistent corners; 150ms ease on hover/focus; under reduced motion, states swap instantly.</p></div>
+  </div>
+  <div style="display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;margin:52px 0 0;align-items:start">
+    <div style="background:#10151F;border:1px solid rgba(255,255,255,0.09);border-radius:10px;padding:26px">
+      <div style="border-left:1px solid rgba(255,255,255,0.16);display:grid;gap:20px;padding:2px 0">
+        <div style="padding-left:20px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:11px;height:11px;border-radius:50%;background:#68718A"></span><div style="font-size:14.5px;font-weight:600">Event node — neutral</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#78829A;margin:3px 0 0">meta in mono 12px</div></div>
+        <div style="padding-left:20px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:11px;height:11px;border-radius:50%;background:#E9B860"></span><div style="font-size:14.5px;font-weight:600">Review moment — amber</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#78829A;margin:3px 0 0">feedback, open question</div></div>
+        <div style="padding-left:20px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:11px;height:11px;border-radius:50%;background:#5BD08B"></span><div style="font-size:14.5px;font-weight:600">Validated — green</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#78829A;margin:3px 0 0">tests, merge</div></div>
+        <div style="padding-left:20px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:11px;height:11px;border-radius:50%;background:#7DB1FF;box-shadow:0 0 0 4px rgba(125,177,255,0.18)"></span><div style="font-size:14.5px;font-weight:600">The human moment — blue, ringed</div><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#78829A;margin:3px 0 0">lesson recorded, action needed</div></div>
+      </div>
+    </div>
+    <div style="display:grid;gap:16px">
+      <p style="font-size:15.5px;line-height:1.7;color:#A9B1C3;margin:0;max-width:58ch">Nodes are 11px circles on 1px rails; the ringed blue node is reserved for the moment that needs a person. Branches carry their verdict as a labeled chip, never a bare arrowhead, and counts sit beside every node so density stays honest.</p>
+      <p style="font-size:15.5px;line-height:1.7;color:#A9B1C3;margin:0;max-width:58ch">Maps read left-to-right or top-to-bottom only. Anything a map says, an adjacent structured-text view says in the same order — the map is a rendering of the story, never the only copy of it.</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Interaction states" style="border-top:1px solid rgba(255,255,255,0.1);padding:64px 0">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8FB8FF">05 · Accessible interaction states</div>
+  <div style="display:flex;gap:44px;flex-wrap:wrap;align-items:flex-end;margin:40px 0 0">
+    <div><button type="button" style="height:52px;padding:0 24px;white-space:nowrap;background:#EDEFF5;color:#0A0D14;border:none;border-radius:7px;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:15.5px;cursor:pointer">Create learning story</button><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#78829A;margin:12px 0 0">Rest · ink on ground</div></div>
+    <div><button type="button" style="height:52px;padding:0 24px;white-space:nowrap;background:#FFFFFF;color:#0A0D14;border:none;border-radius:7px;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:15.5px;cursor:pointer">Create learning story</button><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#78829A;margin:12px 0 0">Hover · pure white</div></div>
+    <div><button type="button" style="height:52px;padding:0 24px;white-space:nowrap;background:#D6DAE4;color:#0A0D14;border:none;border-radius:7px;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:15.5px;cursor:pointer">Create learning story</button><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#78829A;margin:12px 0 0">Pressed</div></div>
+    <div><button type="button" style="height:52px;padding:0 24px;white-space:nowrap;background:#EDEFF5;color:#0A0D14;border:none;border-radius:7px;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:15.5px;cursor:pointer;outline:2px solid #7DB1FF;outline-offset:3px">Create learning story</button><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#78829A;margin:12px 0 0">Keyboard focus · 2px blue, offset 3</div></div>
+    <div><button type="button" style="height:52px;padding:0 24px;white-space:nowrap;background:#EDEFF5;color:#0A0D14;border:none;border-radius:7px;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:15.5px;opacity:0.4;cursor:not-allowed">Create learning story</button><div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#78829A;margin:12px 0 0">Disabled · 40%</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 56px;margin:48px 0 0;max-width:980px">
+    <div style="display:flex;gap:11px;align-items:baseline;font-size:15px;color:#C9D0E0"><span style="width:6px;height:6px;border-radius:50%;background:#7DB1FF;flex:none"></span>Targets ≥ 44px on touch; inputs and primary actions at 60px</div>
+    <div style="display:flex;gap:11px;align-items:baseline;font-size:15px;color:#C9D0E0"><span style="width:6px;height:6px;border-radius:50%;background:#7DB1FF;flex:none"></span>Body text ≥ 14.5px at 7:1+; muted meta ≥ 12px at 4.5:1+</div>
+    <div style="display:flex;gap:11px;align-items:baseline;font-size:15px;color:#C9D0E0"><span style="width:6px;height:6px;border-radius:50%;background:#7DB1FF;flex:none"></span>Errors are calm and specific: “That URL points to a repository, not an issue or pull request. Paste a link that contains /issues/ or /pull/.”</div>
+    <div style="display:flex;gap:11px;align-items:baseline;font-size:15px;color:#C9D0E0"><span style="width:6px;height:6px;border-radius:50%;background:#7DB1FF;flex:none"></span>Loading narrates the work: “Reading 11 comments and 4 commits…”</div>
+  </div>
+</section>
+
+<section data-screen-label="Mobile concept" style="border-top:1px solid rgba(255,255,255,0.1);padding:64px 0">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8FB8FF">06 · Mobile concept · 390px</div>
+  <p style="font-size:16px;line-height:1.7;color:#A9B1C3;max-width:62ch;margin:22px 0 0">One column, same two voices. The timeline stays vertical, chips wrap, actions run full width, and the serif display keeps real scale.</p>
+  <div style="display:flex;gap:44px;flex-wrap:wrap;align-items:flex-start;margin:44px 0 0">
+
+    <div style="flex:none;width:390px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#78829A;margin:0 0 12px">Hero · 390</div>
+      <div style="background:#0A0D14;border:1px solid rgba(255,255,255,0.16);border-radius:14px;overflow:hidden">
+        <div style="display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.09)"><svg width="18" height="18" viewBox="0 0 21 21" aria-hidden="true"><circle cx="5" cy="15.5" r="3" fill="#7DB1FF"></circle><circle cx="16" cy="5" r="2.6" fill="none" stroke="#7DB1FF" stroke-width="1.6"></circle><path d="M7.2 13.2 13.9 7" stroke="#7DB1FF" stroke-width="1.6"></path></svg><span style="font-weight:600;font-size:15px">Contribution Journal</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A9B1C3" stroke-width="2" stroke-linecap="round" style="margin-left:auto" aria-hidden="true"><line x1="4" x2="20" y1="7" y2="7"></line><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="17" y2="17"></line></svg></div>
+        <div style="padding:30px 20px 26px;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:56px 56px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#8FB8FF;margin:0 0 16px">Evidence-backed learning stories</div>
+          <div style="font-family:'Newsreader',serif;font-weight:500;font-size:38px;line-height:1.04;letter-spacing:-0.015em"><span style="display:block">Understand the work,</span><span style="display:block;font-style:italic;color:#C9D4EA">not just the diff.</span></div>
+          <p style="font-size:15px;line-height:1.6;color:#A9B1C3;margin:18px 0 0">Turn GitHub issues and pull requests into visual, evidence-backed stories you can understand, explain, and remember.</p>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#78829A;margin:26px 0 8px">GitHub issue or PR URL</div>
+          <div style="background:#0D1220;border:1px solid rgba(255,255,255,0.16);border-radius:7px;padding:16px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;color:#68718A">github.com/owner/repo/pull/456</div>
+          <button type="button" style="width:100%;height:54px;margin:12px 0 0;background:#EDEFF5;color:#0A0D14;border:none;border-radius:7px;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:15.5px;cursor:pointer">Create learning story</button>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin:16px 0 0"><a href="#m" style="font-size:14px;font-weight:500">Explore an example →</a><span style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#78829A"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Read-only</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="flex:none;width:390px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#78829A;margin:0 0 12px">Learning story · 390</div>
+      <div style="background:#0A0D14;border:1px solid rgba(255,255,255,0.16);border-radius:14px;overflow:hidden">
+        <div style="padding:20px 20px 18px;border-bottom:1px solid rgba(255,255,255,0.09)">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px">
+            <span style="display:inline-flex;padding:2px 9px;border:1px solid rgba(125,177,255,0.4);color:#9CC2FF;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:11.5px">Issue #4821</span>
+            <span style="display:inline-flex;padding:2px 9px;border:1px solid rgba(125,177,255,0.4);color:#9CC2FF;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:11.5px">PR #4907</span>
+            <span style="display:inline-flex;padding:2px 9px;border:1px solid rgba(91,208,139,0.45);color:#7FDCA4;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:11.5px">Merged</span>
+          </div>
+          <div style="font-family:'Newsreader',serif;font-weight:500;font-size:22px;line-height:1.18">Duplicate webhook deliveries under overlapping retries</div>
+        </div>
+        <div style="padding:20px">
+          <div style="border-left:1px solid rgba(255,255,255,0.16);display:grid;gap:16px;padding:2px 0;margin:0 0 22px">
+            <div style="padding-left:18px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:11px;height:11px;border-radius:50%;background:#68718A"></span><span style="font-size:14px;font-weight:600">Issue reported</span> <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#78829A">· Mar 3</span></div>
+            <div style="padding-left:18px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:11px;height:11px;border-radius:50%;background:#68718A"></span><span style="font-size:14px;font-weight:600">Approaches weighed</span> <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#78829A">· 2, 1 rejected</span></div>
+            <div style="padding-left:18px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:11px;height:11px;border-radius:50%;background:#E9B860"></span><span style="font-size:14px;font-weight:600">Review → revised</span> <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#78829A">· 2 commits</span></div>
+            <div style="padding-left:18px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:11px;height:11px;border-radius:50%;background:#5BD08B"></span><span style="font-size:14px;font-weight:600">Merged</span> <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#78829A">· v2.41.0</span></div>
+            <div style="padding-left:18px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:11px;height:11px;border-radius:50%;background:#7DB1FF;box-shadow:0 0 0 4px rgba(125,177,255,0.18)"></span><span style="font-size:14px;font-weight:600">Lesson recorded</span></div>
+          </div>
+          <div style="background:#10151F;border:1px solid rgba(242,109,118,0.28);border-radius:8px;padding:14px 16px;margin:0 0 10px">
+            <div style="display:flex;justify-content:space-between;gap:8px;align-items:center;margin:0 0 5px"><span style="font-size:14px;font-weight:600">In-memory delivery lock</span><span style="display:inline-flex;padding:1px 8px;border:1px solid rgba(242,109,118,0.45);color:#F49099;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:11px">Rejected</span></div>
+            <div style="font-size:13px;line-height:1.55;color:#A9B1C3">Dies with the worker. Two nodes, two locks.</div>
+          </div>
+          <div style="background:#10151F;border:1px solid rgba(91,208,139,0.3);border-radius:8px;padding:14px 16px;margin:0 0 18px">
+            <div style="display:flex;justify-content:space-between;gap:8px;align-items:center;margin:0 0 5px"><span style="font-size:14px;font-weight:600">Persisted idempotency key</span><span style="display:inline-flex;padding:1px 8px;border:1px solid rgba(91,208,139,0.45);color:#7FDCA4;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:11px">Chosen</span></div>
+            <div style="font-size:13px;line-height:1.55;color:#A9B1C3">The database enforces it — survives crashes.</div>
+          </div>
+          <div style="background:rgba(125,177,255,0.06);border:1px solid rgba(125,177,255,0.25);border-radius:8px;padding:14px 16px">
+            <div style="font-family:'Newsreader',serif;font-weight:500;font-size:16.5px;line-height:1.4;margin:0 0 9px">Deduplicate in storage, not in memory.</div>
+            <span style="display:inline-flex;align-items:center;gap:5px;padding:1px 8px;border:1px solid rgba(91,208,139,0.45);color:#7FDCA4;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:11px"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Confirmed by you</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="flex:none;width:390px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#78829A;margin:0 0 12px">Check yourself + close · 390</div>
+      <div style="background:#0A0D14;border:1px solid rgba(255,255,255,0.16);border-radius:14px;overflow:hidden">
+        <div style="padding:20px;border-bottom:1px solid rgba(255,255,255,0.09)">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#78829A;margin:0 0 12px">Check yourself</div>
+          <div style="font-size:15px;font-weight:600;line-height:1.5;margin:0 0 12px">What prevents the duplicate send after a crash?</div>
+          <div style="display:grid;gap:10px">
+            <label style="display:inline-flex;align-items:center;gap:10px;font-size:14px;color:#C9D0E0"><input type="radio" name="cjm-quiz" style="accent-color:#7DB1FF;width:16px;height:16px;margin:0">The worker mutex</label>
+            <label style="display:inline-flex;align-items:center;gap:10px;font-size:14px;color:#C9D0E0"><input type="radio" name="cjm-quiz" defaultChecked="{{ true }}" style="accent-color:#7DB1FF;width:16px;height:16px;margin:0">The unique constraint in the transaction</label>
+            <label style="display:inline-flex;align-items:center;gap:10px;font-size:14px;color:#C9D0E0"><input type="radio" name="cjm-quiz" style="accent-color:#7DB1FF;width:16px;height:16px;margin:0">The retry backoff</label>
+          </div>
+        </div>
+        <div style="padding:30px 20px 32px;background-image:radial-gradient(360px 220px at 50% 120%,rgba(125,177,255,0.12),transparent 65%)">
+          <div style="font-family:'Newsreader',serif;font-weight:500;font-size:27px;line-height:1.08;letter-spacing:-0.012em"><span style="display:block">Your next pull request should</span><span style="display:block">leave you with <span style="font-style:italic;color:#C9D4EA">more than merged code.</span></span></div>
+          <p style="font-size:14px;line-height:1.6;color:#A9B1C3;margin:16px 0 0">Turn the work into something you can understand, explain and remember.</p>
+          <div style="background:#0D1220;border:1px solid rgba(255,255,255,0.16);border-radius:7px;padding:15px 16px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#68718A;margin:22px 0 0">github.com/owner/repo/pull/456</div>
+          <button type="button" style="width:100%;height:54px;margin:10px 0 0;background:#EDEFF5;color:#0A0D14;border:none;border-radius:7px;font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:15.5px;cursor:pointer">Create learning story</button>
+          <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:#78829A;margin:18px 0 0"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Read-only. Nothing is published without you.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section data-screen-label="Rationale" style="border-top:1px solid rgba(255,255,255,0.1);padding:64px 0 96px">
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8FB8FF">07 · Why this supports trust, comprehension and learning</div>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 56px;margin:40px 0 0">
+    <div style="border-top:1px solid rgba(255,255,255,0.14);padding:20px 0 0"><div style="font-size:17px;font-weight:600;margin:0 0 8px">Trust</div><p style="font-size:15px;line-height:1.7;color:#A9B1C3;margin:0">Claims are falsifiable by construction: every factual sentence can carry a blue evidence chip, AI drafts are dashed violet before they are anything else, and green confirmation is the strongest state on the page. Read-only, private and deletable are shown as interface, not asserted as paragraphs.</p></div>
+    <div style="border-top:1px solid rgba(255,255,255,0.14);padding:20px 0 0"><div style="font-size:17px;font-weight:600;margin:0 0 8px">Comprehension</div><p style="font-size:15px;line-height:1.7;color:#A9B1C3;margin:0">One story spine runs through the whole page — reported, weighed, reviewed, revised, merged, learned — and every artifact re-renders it: strip, rail, map, prose. The serif/mono split separates human reasoning from machine record at a glance, and every diagram has an equal structured-text form.</p></div>
+    <div style="border-top:1px solid rgba(255,255,255,0.14);padding:20px 0 0"><div style="font-size:17px;font-weight:600;margin:0 0 8px">Learning</div><p style="font-size:15px;line-height:1.7;color:#A9B1C3;margin:0">Verification is the learning mechanism: correcting a draft, answering “why did this change?”, teaching the fix back, and meeting the lesson again later are all retrieval practice. AI drafts; the person confirms — and the ringed blue node makes that confirmation the visible center of the product.</p></div>
+  </div>
+</section>
+
+</main>
+</x-dc>
+</body>
+</html>

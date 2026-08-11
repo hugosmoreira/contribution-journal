@@ -1,0 +1,86 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+# The README, CHANGELOG and ADR-0003 all promise that the no-AI path is "a
+# supported mode, exercised in CI, not a degraded one". The e2e job keeps that
+# promise: `npm run dev:e2e` forces JOURNAL_DISABLE_AI=1 on the app under
+# test. The variable must NOT be set workflow-wide — the unit suite proves
+# provider selection with keys present, and a global override reduces every
+# selection test to the null adapter.
+
+jobs:
+  test:
+    name: test (node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # 20 is the documented floor in README/CONTRIBUTING; 22 is current LTS.
+        node: ['20', '22']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - name: Unit tests
+        run: npm test
+      - name: Type check
+        run: npm run typecheck
+
+  # Kept separate: it needs Postgres and a built app, so a failure here should
+  # be readable as "the integrated flow broke", not "a unit test broke".
+  e2e:
+    name: e2e + accessibility
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_USER: journal
+          POSTGRES_PASSWORD: journal_dev
+          POSTGRES_DB: journal
+        ports: ['5544:5432']
+        options: >-
+          --health-cmd "pg_isready -U journal"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgres://journal:journal_dev@localhost:5544/journal
+      # Dummy machine-auth secret shared by the app under test and the capture
+      # suite — without it that suite skips, and the skip guard rightly fails
+      # the run (a pass must mean everything ran).
+      JOURNAL_API_TOKEN: ci-e2e-capture-token-0123456789abcdef
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Apply database schema
+        run: npm run push --workspace packages/db
+      - name: Start the app (null AI adapter, deterministic)
+        run: |
+          npm run dev:e2e &
+          for i in $(seq 1 60); do
+            curl -sf http://localhost:3000 >/dev/null && exit 0
+            sleep 2
+          done
+          echo "dev server did not come up within 120s" >&2
+          exit 1
+      - name: End-to-end checks
+        run: npm run e2e
+        env:
+          E2E_BASE_URL: http://localhost:3000
+      - name: Accessibility checks
+        run: npm run a11y
+        env:
+          E2E_BASE_URL: http://localhost:3000

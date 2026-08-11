@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-b329d09a-0742-46db-9589-2ea1296f54e6/styles.css">
+<script src="_ds/modernist-b329d09a-0742-46db-9589-2ea1296f54e6/_ds_bundle.js"></script>
+<style>
+body{margin:0;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);text-wrap:pretty;-webkit-font-smoothing:antialiased}
+a{color:var(--color-accent-700)}a:hover{color:var(--color-accent-600)}
+</style>
+</helmet>
+
+<main style="max-width:1280px;margin:0 auto;padding:0 clamp(24px,4vw,64px)">
+
+<header data-screen-label="Cover" style="padding:64px 0 48px">
+  <span style="display:inline-flex;align-items:center;gap:10px;font-family:var(--font-heading);font-weight:800;font-size:15px"><span style="width:11px;height:11px;background:var(--color-accent)"></span>Contribution Journal</span>
+  <h1 style="font-size:clamp(38px,4.6vw,64px);line-height:1.05;letter-spacing:-0.02em;margin:24px 0 0 -0.058em"><span style="display:block">Design direction</span><span style="display:block">&amp; mobile concept.</span></h1>
+  <p style="font-size:16px;line-height:1.65;color:var(--color-neutral-800);max-width:62ch;margin:24px 0 0">The creative direction, systems and rationale behind the landing page — typography, color and semantic states, spacing, timeline treatment, accessible interaction states, and the page at phone width.</p>
+</header>
+
+<div style="height:2px;background:var(--color-divider)"></div>
+
+<section data-screen-label="Creative direction" style="padding:56px 0">
+  <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700)">01 · Creative direction</span>
+  <h2 style="font-size:clamp(26px,2.8vw,36px);line-height:1.1;letter-spacing:-0.015em;margin:14px 0 0;max-width:28ch">An engineering journal, printed with editorial discipline.</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 48px;margin:36px 0 0">
+    <div style="border-top:2px solid var(--color-divider);padding:16px 0 0"><div style="font-size:15px;font-weight:600;margin:0 0 6px">The record, made legible</div><p style="font-size:13.5px;line-height:1.6;color:var(--color-neutral-800);margin:0">Everything is drawn structure: rails, seams, squares, chips. No decoration, no dashboards — the artifact itself is the imagery, so the page shows the product instead of illustrating it.</p></div>
+    <div style="border-top:2px solid var(--color-divider);padding:16px 0 0"><div style="font-size:15px;font-weight:600;margin:0 0 6px">Calm and accountable</div><p style="font-size:13.5px;line-height:1.6;color:var(--color-neutral-800);margin:0">Near-mono ink on a warm paper ground, one red, generous air, flush-left everything. Trust reads as restraint: nothing glows, nothing floats, every claim carries a receipt.</p></div>
+    <div style="border-top:2px solid var(--color-divider);padding:16px 0 0"><div style="font-size:15px;font-weight:600;margin:0 0 6px">The human is the accent</div><p style="font-size:13.5px;line-height:1.6;color:var(--color-neutral-800);margin:0">Red is budgeted for human moments: the primary action, the lesson node, the review annotation, one poster close. AI drafts render quiet and dashed; confirmation renders solid.</p></div>
+  </div>
+  <p style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);max-width:72ch;margin:32px 0 0">A note on the brief: the requested five-hue semantic set (blue, violet, amber, green, red) is collapsed into the bound mono system. Semantic state is carried by mark, weight and label — solid, outline, dashed — so meaning never rides on hue at all, which is stricter than the accessibility bar the brief sets. The dark-layered mood is delivered as two ink fields and a red field on the paper ground rather than a dark page.</p>
+</section>
+
+<div style="height:2px;background:var(--color-divider)"></div>
+
+<section data-screen-label="Information architecture" style="padding:56px 0">
+  <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700)">02 · Landing-page architecture</span>
+  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 64px;margin:28px 0 0;max-width:900px">
+    <div>
+      <div style="display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="font-family:var(--font-heading);font-weight:800;font-size:12px;font-feature-settings:'tnum' 1;color:var(--color-neutral-700)">01</span><div><span style="font-size:14.5px;font-weight:600">Navigation</span><span style="font-size:12.5px;color:var(--color-neutral-700)"> — identity, five links, one action</span></div></div>
+      <div style="display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="font-family:var(--font-heading);font-weight:800;font-size:12px;font-feature-settings:'tnum' 1;color:var(--color-neutral-700)">02</span><div><span style="font-size:14.5px;font-weight:600">Hero</span><span style="font-size:12.5px;color:var(--color-neutral-700)"> — claim, URL input, type choice, trust line, glimpse</span></div></div>
+      <div style="display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="font-family:var(--font-heading);font-weight:800;font-size:12px;font-feature-settings:'tnum' 1;color:var(--color-neutral-700)">03</span><div><span style="font-size:14.5px;font-weight:600">Product preview</span><span style="font-size:12.5px;color:var(--color-neutral-700)"> — one story, timeline + chapters + markers</span></div></div>
+      <div style="display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="font-family:var(--font-heading);font-weight:800;font-size:12px;font-feature-settings:'tnum' 1;color:var(--color-neutral-700)">04</span><div><span style="font-size:14.5px;font-weight:600">The human problem</span><span style="font-size:12.5px;color:var(--color-neutral-700)"> — ink field, the missing learning layer</span></div></div>
+      <div style="display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="font-family:var(--font-heading);font-weight:800;font-size:12px;font-feature-settings:'tnum' 1;color:var(--color-neutral-700)">05</span><div><span style="font-size:14.5px;font-weight:600">How it works</span><span style="font-size:12.5px;color:var(--color-neutral-700)"> — paste · understand · make it yours</span></div></div>
+      <div style="display:flex;gap:14px;align-items:baseline;padding:12px 0"><span style="font-family:var(--font-heading);font-weight:800;font-size:12px;font-feature-settings:'tnum' 1;color:var(--color-neutral-700)">06</span><div><span style="font-size:14.5px;font-weight:600">Two entry points</span><span style="font-size:12.5px;color:var(--color-neutral-700)"> — issue + PR converge into one story</span></div></div>
+    </div>
+    <div>
+      <div style="display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="font-family:var(--font-heading);font-weight:800;font-size:12px;font-feature-settings:'tnum' 1;color:var(--color-neutral-700)">07</span><div><span style="font-size:14.5px;font-weight:600">Learning experience</span><span style="font-size:12.5px;color:var(--color-neutral-700)"> — six active-learning artifacts</span></div></div>
+      <div style="display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="font-family:var(--font-heading);font-weight:800;font-size:12px;font-feature-settings:'tnum' 1;color:var(--color-neutral-700)">08</span><div><span style="font-size:14.5px;font-weight:600">Trust &amp; provenance</span><span style="font-size:12.5px;color:var(--color-neutral-700)"> — receipts, corrections, read-only, private</span></div></div>
+      <div style="display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="font-family:var(--font-heading);font-weight:800;font-size:12px;font-feature-settings:'tnum' 1;color:var(--color-neutral-700)">09</span><div><span style="font-size:14.5px;font-weight:600">Accessibility</span><span style="font-size:12.5px;color:var(--color-neutral-700)"> — identity section, same story two ways</span></div></div>
+      <div style="display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="font-family:var(--font-heading);font-weight:800;font-size:12px;font-feature-settings:'tnum' 1;color:var(--color-neutral-700)">10</span><div><span style="font-size:14.5px;font-weight:600">Example story</span><span style="font-size:12.5px;color:var(--color-neutral-700)"> — a real fix, end to end, journal form</span></div></div>
+      <div style="display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="font-family:var(--font-heading);font-weight:800;font-size:12px;font-feature-settings:'tnum' 1;color:var(--color-neutral-700)">11</span><div><span style="font-size:14.5px;font-weight:600">Poster close</span><span style="font-size:12.5px;color:var(--color-neutral-700)"> — the red field, input repeated</span></div></div>
+      <div style="display:flex;gap:14px;align-items:baseline;padding:12px 0"><span style="font-family:var(--font-heading);font-weight:800;font-size:12px;font-feature-settings:'tnum' 1;color:var(--color-neutral-700)">12</span><div><span style="font-size:14.5px;font-weight:600">Footer</span><span style="font-size:12.5px;color:var(--color-neutral-700)"> — links + the trust line, quietly repeated</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div style="height:2px;background:var(--color-divider)"></div>
+
+<section data-screen-label="Typography" style="padding:56px 0">
+  <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700)">03 · Typography</span>
+  <p style="font-size:15px;line-height:1.65;color:var(--color-neutral-800);max-width:62ch;margin:18px 0 0">Archivo only. 800 for display and headings, 600 for emphasis, 400 for reading. Tabular numerals wherever refs, counts and dates appear. Everything flush left; measures held to 48–68ch.</p>
+  <div style="margin:32px 0 0;border-top:2px solid var(--color-divider)">
+    <div style="display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--color-neutral-300)"><div style="font-size:12px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">Display · 800 · 44–80px · 1.05</div><div style="font-family:var(--font-heading);font-weight:800;font-size:clamp(34px,4vw,56px);line-height:1.05;letter-spacing:-0.02em">Understand the work,</div></div>
+    <div style="display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--color-neutral-300)"><div style="font-size:12px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">Section head · 800 · 30–42px · 1.08</div><div style="font-family:var(--font-heading);font-weight:800;font-size:32px;line-height:1.08;letter-spacing:-0.015em">Every claim can show its receipt.</div></div>
+    <div style="display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--color-neutral-300)"><div style="font-size:12px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">Panel title · 800 · 24px · 1.15</div><div style="font-family:var(--font-heading);font-weight:800;font-size:24px;line-height:1.15;letter-spacing:-0.01em">Duplicate webhook deliveries</div></div>
+    <div style="display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--color-neutral-300)"><div style="font-size:12px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">Body · 400 · 15–18px · 1.65</div><div style="font-size:16px;line-height:1.65;max-width:60ch;color:var(--color-neutral-800)">Turn GitHub issues and pull requests into visual, evidence-backed stories you can understand, explain, and remember.</div></div>
+    <div style="display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--color-neutral-300)"><div style="font-size:12px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">Kicker · 400 · 13px · caps 0.08em</div><div style="font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700)">Trust &amp; provenance</div></div>
+    <div style="display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:baseline;padding:20px 0;border-bottom:2px solid var(--color-divider)"><div style="font-size:12px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">Chip · 400–600 · 11px · tnum</div><div><span style="display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border:1px solid var(--color-neutral-400);background:var(--color-bg);font-size:11px;font-feature-settings:'tnum' 1">Issue #4821 · comment 7</span></div></div>
+  </div>
+</section>
+
+<div style="height:2px;background:var(--color-divider)"></div>
+
+<section data-screen-label="Color and semantics" style="padding:56px 0">
+  <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700)">04 · Color &amp; semantic states</span>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;margin:28px 0 0">
+    <div style="width:150px"><div style="height:72px;background:var(--color-bg);border:1px solid var(--color-neutral-400)"></div><div style="font-size:12px;font-weight:600;margin:8px 0 0">Paper ground</div><div style="font-size:11px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">#F3F2F2</div></div>
+    <div style="width:150px"><div style="height:72px;background:var(--color-surface);border:1px solid var(--color-neutral-400)"></div><div style="font-size:12px;font-weight:600;margin:8px 0 0">Surface</div><div style="font-size:11px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">#EAE9E9</div></div>
+    <div style="width:150px"><div style="height:72px;background:var(--color-text)"></div><div style="font-size:12px;font-weight:600;margin:8px 0 0">Ink · field &amp; text</div><div style="font-size:11px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">#201E1D</div></div>
+    <div style="width:150px"><div style="height:72px;background:var(--color-accent)"></div><div style="font-size:12px;font-weight:600;margin:8px 0 0">Red · the accent</div><div style="font-size:11px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">#EC3013</div></div>
+    <div style="width:150px"><div style="height:72px;background:var(--color-accent-700)"></div><div style="font-size:12px;font-weight:600;margin:8px 0 0">Red 700 · small text</div><div style="font-size:11px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">#AE1800 · 6.4:1</div></div>
+    <div style="width:150px"><div style="height:72px;display:grid;grid-template-columns:repeat(5,1fr)"><div style="background:var(--color-neutral-300)"></div><div style="background:var(--color-neutral-400)"></div><div style="background:var(--color-neutral-600)"></div><div style="background:var(--color-neutral-700)"></div><div style="background:var(--color-neutral-800)"></div></div><div style="font-size:12px;font-weight:600;margin:8px 0 0">Neutral ramp</div><div style="font-size:11px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">300–800, OKLCH steps</div></div>
+  </div>
+  <div style="margin:40px 0 0;border-top:2px solid var(--color-divider)">
+    <div style="display:grid;grid-template-columns:240px 1fr;gap:24px;align-items:center;padding:16px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border:1px solid var(--color-neutral-400);background:var(--color-bg);font-size:11px;font-feature-settings:'tnum' 1;justify-self:start"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M15 7h2a5 5 0 1 1 0 10h-2"></path><line x1="8" x2="16" y1="12" y2="12"></line></svg>Evidence · #4821</span><p style="font-size:13.5px;line-height:1.6;color:var(--color-neutral-800);margin:0">Outlined chip + link mark + ref. Links a claim to its GitHub source. Always labeled, always tabular.</p></div>
+    <div style="display:grid;grid-template-columns:240px 1fr;gap:24px;align-items:center;padding:16px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="display:inline-flex;align-items:center;gap:5px;padding:3px 9px;background:var(--color-text);color:var(--color-bg);font-size:11px;justify-self:start"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Confirmed by you</span><p style="font-size:13.5px;line-height:1.6;color:var(--color-neutral-800);margin:0">Solid ink + check. A person verified it. The strongest state on the page — stronger than anything AI-made.</p></div>
+    <div style="display:grid;grid-template-columns:240px 1fr;gap:24px;align-items:center;padding:16px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border:1px dashed var(--color-neutral-600);color:var(--color-neutral-800);font-size:11px;justify-self:start"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 6v12"></path><path d="M17.196 9 6.804 15"></path><path d="m6.804 9 10.392 6"></path></svg>AI draft / inferred</span><p style="font-size:13.5px;line-height:1.6;color:var(--color-neutral-800);margin:0">Dashed border + asterisk. Drafted or reasoned, not yet checked. Visually provisional by construction.</p></div>
+    <div style="display:grid;grid-template-columns:240px 1fr;gap:24px;align-items:center;padding:16px 0;border-bottom:1px solid var(--color-neutral-300)"><span style="display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border:1px solid var(--color-accent-700);color:var(--color-accent-700);font-size:11px;justify-self:start"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>Rejected / destructive</span><p style="font-size:13.5px;line-height:1.6;color:var(--color-neutral-800);margin:0">Deep-red outline + cross. Abandoned approaches and delete actions. Never red fill — the field is reserved.</p></div>
+    <div style="display:grid;grid-template-columns:240px 1fr;gap:24px;align-items:center;padding:16px 0;border-bottom:2px solid var(--color-divider)"><span style="display:inline-flex;align-items:center;gap:8px;font-size:12px;justify-self:start"><span style="width:10px;height:10px;background:var(--color-accent)"></span>Attention mark</span><p style="font-size:13.5px;line-height:1.6;color:var(--color-neutral-800);margin:0">The 10px red square marks the human moment: the lesson node, the step start, the review annotation bar.</p></div>
+  </div>
+  <p style="font-size:13px;line-height:1.65;color:var(--color-neutral-700);max-width:72ch;margin:24px 0 0">Every state pairs a shape (solid / outline / dashed), a mark (link / check / asterisk / cross) and a written label. Strip all color from the page and nothing changes meaning.</p>
+</section>
+
+<div style="height:2px;background:var(--color-divider)"></div>
+
+<section data-screen-label="Spacing and layout" style="padding:56px 0">
+  <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700)">05 · Spacing &amp; layout</span>
+  <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px 48px;margin:28px 0 0">
+    <div><div style="font-family:var(--font-heading);font-weight:800;font-size:26px;font-feature-settings:'tnum' 1">1200px</div><p style="font-size:13px;line-height:1.6;color:var(--color-neutral-800);margin:6px 0 0">Content column, generous clamp gutters. Full-bleed only for the three fields (two ink, one red).</p></div>
+    <div><div style="font-family:var(--font-heading);font-weight:800;font-size:26px;font-feature-settings:'tnum' 1">4px base</div><p style="font-size:13px;line-height:1.6;color:var(--color-neutral-800);margin:6px 0 0">Token scale for components; sections breathe at 72px, panels at 20–28px. Air replaces boxes wherever possible.</p></div>
+    <div><div style="font-family:var(--font-heading);font-weight:800;font-size:26px;font-feature-settings:'tnum' 1">2px seams</div><p style="font-size:13px;line-height:1.6;color:var(--color-neutral-800);margin:6px 0 0">Sections are separated by drawn rules, never by background changes. Internal structure uses 1px; hierarchy is rule weight.</p></div>
+    <div><div style="font-family:var(--font-heading);font-weight:800;font-size:26px;font-feature-settings:'tnum' 1">0 radius</div><p style="font-size:13px;line-height:1.6;color:var(--color-neutral-800);margin:6px 0 0">No rounded corners, no floating decoration. Elevation appears once, on the story artifact — the one object with depth.</p></div>
+  </div>
+</section>
+
+<div style="height:2px;background:var(--color-divider)"></div>
+
+<section data-screen-label="Timeline treatment" style="padding:56px 0">
+  <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700)">06 · Timelines &amp; learning maps</span>
+  <div style="display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;margin:28px 0 0;align-items:start">
+    <div style="background:var(--color-surface);border:1px solid var(--color-neutral-300);padding:24px">
+      <div style="border-left:2px solid var(--color-neutral-400);display:grid;gap:18px;padding:2px 0">
+        <div style="padding-left:18px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:10px;height:10px;background:var(--color-text)"></span><div style="font-size:13px;font-weight:600">Event node — 10px ink square</div><div style="font-size:11px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">meta in tabular 11px</div></div>
+        <div style="padding-left:18px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:10px;height:10px;border:2px solid var(--color-text);background:var(--color-bg)"></span><div style="font-size:13px;font-weight:600">Pending node — outlined</div><div style="font-size:11px;color:var(--color-neutral-700)">not yet reached</div></div>
+        <div style="padding-left:18px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:10px;height:10px;background:var(--color-accent)"></span><div style="font-size:13px;font-weight:600">Human moment — red square</div><div style="font-size:11px;color:var(--color-neutral-700)">lesson recorded, action needed</div></div>
+      </div>
+    </div>
+    <div style="display:grid;gap:14px">
+      <p style="font-size:14.5px;line-height:1.65;color:var(--color-neutral-800);margin:0;max-width:58ch">Nodes are squares, rails are 1–2px rules, junctions are 14px. Branches carry their verdict as a labeled chip, not an arrowhead. Counts and dates sit beside every node so density stays honest.</p>
+      <p style="font-size:14.5px;line-height:1.65;color:var(--color-neutral-800);margin:0;max-width:58ch">Maps read left-to-right or top-to-bottom only — no radial graphs, no crossings. Anything a map says, an adjacent structured-text view says in the same order. The map is a rendering of the story, never the only copy of it.</p>
+      <p style="font-size:14.5px;line-height:1.65;color:var(--color-neutral-800);margin:0;max-width:58ch">Motion, where used, is a single 150ms ease on hover and focus. Under reduced motion, state changes swap instantly — nothing meaningful is animated-only.</p>
+    </div>
+  </div>
+</section>
+
+<div style="height:2px;background:var(--color-divider)"></div>
+
+<section data-screen-label="Interaction states" style="padding:56px 0">
+  <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700)">07 · Accessible interaction states</span>
+  <div style="display:flex;gap:40px;flex-wrap:wrap;align-items:flex-end;margin:32px 0 0">
+    <div><button type="button" class="btn btn-primary" style="font-size:15px;padding:12px 20px">Create learning story</button><div style="font-size:11px;color:var(--color-neutral-700);margin:10px 0 0">Rest</div></div>
+    <div><button type="button" class="btn" style="font-size:15px;padding:12px 20px;background:var(--color-accent-600);color:var(--color-bg)">Create learning story</button><div style="font-size:11px;color:var(--color-neutral-700);margin:10px 0 0">Hover · accent-600</div></div>
+    <div><button type="button" class="btn" style="font-size:15px;padding:12px 20px;background:var(--color-accent-700);color:var(--color-bg)">Create learning story</button><div style="font-size:11px;color:var(--color-neutral-700);margin:10px 0 0">Pressed · accent-700</div></div>
+    <div><button type="button" class="btn btn-primary" style="font-size:15px;padding:12px 20px;outline:2px solid var(--color-accent);outline-offset:2px">Create learning story</button><div style="font-size:11px;color:var(--color-neutral-700);margin:10px 0 0">Keyboard focus · 2px ring, 2px offset</div></div>
+    <div><button type="button" class="btn btn-primary" style="font-size:15px;padding:12px 20px;opacity:0.45;cursor:not-allowed">Create learning story</button><div style="font-size:11px;color:var(--color-neutral-700);margin:10px 0 0">Disabled · 45%</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 48px;margin:40px 0 0;max-width:880px">
+    <div style="display:flex;gap:10px;align-items:baseline;font-size:14px"><span style="width:7px;height:7px;background:var(--color-text);flex:none"></span>Interaction targets ≥ 44px on touch; inputs and primary actions at 54px</div>
+    <div style="display:flex;gap:10px;align-items:baseline;font-size:14px"><span style="width:7px;height:7px;background:var(--color-text);flex:none"></span>Focus ring on every interactive element, never suppressed</div>
+    <div style="display:flex;gap:10px;align-items:baseline;font-size:14px"><span style="width:7px;height:7px;background:var(--color-text);flex:none"></span>Small accent text uses the 700 step (6.4:1); base red is chrome-only</div>
+    <div style="display:flex;gap:10px;align-items:baseline;font-size:14px"><span style="width:7px;height:7px;background:var(--color-text);flex:none"></span>Errors are calm and specific: “That URL points to a repository, not an issue or pull request. Paste a link that contains /issues/ or /pull/.”</div>
+    <div style="display:flex;gap:10px;align-items:baseline;font-size:14px"><span style="width:7px;height:7px;background:var(--color-text);flex:none"></span>Loading narrates the work: “Reading 11 comments and 4 commits…”</div>
+    <div style="display:flex;gap:10px;align-items:baseline;font-size:14px"><span style="width:7px;height:7px;background:var(--color-text);flex:none"></span>Every input labeled; reading order matches visual order throughout</div>
+  </div>
+</section>
+
+<div style="height:2px;background:var(--color-divider)"></div>
+
+<section data-screen-label="Mobile concept" style="padding:56px 0">
+  <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700)">08 · Mobile concept · 390px</span>
+  <p style="font-size:15px;line-height:1.65;color:var(--color-neutral-800);max-width:62ch;margin:18px 0 0">One column, same grammar. The rail stays vertical, chips wrap, the primary action runs full width with a flush-left label, and the poster close keeps its scale.</p>
+  <div style="display:flex;gap:40px;flex-wrap:wrap;align-items:flex-start;margin:40px 0 0">
+
+    <div style="flex:none;width:390px">
+      <div style="font-size:12px;color:var(--color-neutral-700);margin:0 0 10px;font-feature-settings:'tnum' 1">Hero · 390</div>
+      <div style="border:2px solid var(--color-text);background:var(--color-bg)">
+        <div style="display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:2px solid var(--color-divider)"><span style="width:10px;height:10px;background:var(--color-accent)"></span><span style="font-family:var(--font-heading);font-weight:800;font-size:14px">Contribution Journal</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="margin-left:auto" aria-hidden="true"><line x1="4" x2="20" y1="7" y2="7"></line><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="17" y2="17"></line></svg></div>
+        <div style="padding:28px 18px 24px">
+          <h3 style="font-size:33px;line-height:1.06;letter-spacing:-0.02em;margin:0"><span style="display:block">Understand the work,</span><span style="display:block">not just the diff.</span></h3>
+          <p style="font-size:14.5px;line-height:1.6;color:var(--color-neutral-800);margin:16px 0 0">Turn GitHub issues and pull requests into visual, evidence-backed stories you can understand, explain, and remember.</p>
+          <div style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-neutral-700);margin:22px 0 6px">GitHub issue or pull-request URL</div>
+          <div style="background:var(--color-surface);border:1px solid var(--color-divider);padding:14px 14px;font-size:14px;color:var(--color-neutral-600);font-feature-settings:'tnum' 1">github.com/owner/repo/pull/456</div>
+          <div style="display:flex;margin:10px 0 0;border:1px solid var(--color-divider)">
+            <span style="flex:1;padding:9px 0 9px 12px;font-size:12.5px;border-right:1px solid var(--color-divider)">Issue</span>
+            <span style="flex:1.2;padding:9px 0 9px 12px;font-size:12.5px;border-right:1px solid var(--color-divider)">Pull request</span>
+            <span style="flex:1.3;padding:9px 12px;font-size:12.5px;background:var(--color-accent);color:var(--color-bg)">Detect</span>
+          </div>
+          <button type="button" class="btn btn-primary btn-block" style="font-size:15px;padding:14px 16px;margin-top:14px">Create learning story</button>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin:14px 0 0"><a href="#example" class="btn btn-ghost" style="font-size:14px">Explore an example</a><span style="display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--color-neutral-700)"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Read-only</span></div>
+          <div style="border-top:1px solid var(--color-neutral-300);margin:20px 0 0;padding:14px 0 0;font-size:11px;color:var(--color-neutral-700)">Nothing is published without you.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="flex:none;width:390px">
+      <div style="font-size:12px;color:var(--color-neutral-700);margin:0 0 10px;font-feature-settings:'tnum' 1">Learning story · 390</div>
+      <div style="border:2px solid var(--color-text);background:var(--color-bg)">
+        <div style="padding:18px 18px 16px;border-bottom:2px solid var(--color-divider)">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px">
+            <span style="display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border:1px solid var(--color-neutral-400);font-size:10.5px;font-feature-settings:'tnum' 1">Issue #4821</span>
+            <span style="display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border:1px solid var(--color-neutral-400);font-size:10.5px;font-feature-settings:'tnum' 1">PR #4907</span>
+            <span style="display:inline-flex;align-items:center;gap:4px;padding:2px 8px;background:var(--color-text);color:var(--color-bg);font-size:10.5px">Merged</span>
+          </div>
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:19px;line-height:1.2;letter-spacing:-0.01em">Duplicate webhook deliveries under overlapping retries</div>
+        </div>
+        <div style="padding:18px">
+          <div style="border-left:2px solid var(--color-neutral-400);display:grid;gap:14px;padding:2px 0;margin:0 0 20px">
+            <div style="padding-left:16px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:10px;height:10px;background:var(--color-text)"></span><span style="font-size:12.5px;font-weight:600">Issue reported</span> <span style="font-size:10.5px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">· Mar 3</span></div>
+            <div style="padding-left:16px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:10px;height:10px;background:var(--color-text)"></span><span style="font-size:12.5px;font-weight:600">Approaches weighed</span> <span style="font-size:10.5px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">· 2, 1 rejected</span></div>
+            <div style="padding-left:16px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:10px;height:10px;background:var(--color-text)"></span><span style="font-size:12.5px;font-weight:600">Review → revised</span> <span style="font-size:10.5px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">· 2 commits</span></div>
+            <div style="padding-left:16px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:10px;height:10px;background:var(--color-text)"></span><span style="font-size:12.5px;font-weight:600">Merged</span> <span style="font-size:10.5px;color:var(--color-neutral-700);font-feature-settings:'tnum' 1">· v2.41.0</span></div>
+            <div style="padding-left:16px;position:relative"><span style="position:absolute;left:-6px;top:3px;width:10px;height:10px;background:var(--color-accent)"></span><span style="font-size:12.5px;font-weight:600">Lesson recorded</span></div>
+          </div>
+          <div style="background:var(--color-surface);border:1px solid var(--color-neutral-300);padding:12px 14px;margin:0 0 10px">
+            <div style="display:flex;justify-content:space-between;gap:8px;align-items:center;margin:0 0 4px"><span style="font-size:12.5px;font-weight:600">In-memory delivery lock</span><span style="display:inline-flex;align-items:center;gap:4px;padding:1px 7px;border:1px solid var(--color-accent-700);color:var(--color-accent-700);font-size:10px">Rejected</span></div>
+            <div style="font-size:11.5px;line-height:1.5;color:var(--color-neutral-800)">Dies with the worker. Two nodes, two locks.</div>
+          </div>
+          <div style="background:var(--color-surface);border:1px solid var(--color-neutral-300);padding:12px 14px;margin:0 0 16px">
+            <div style="display:flex;justify-content:space-between;gap:8px;align-items:center;margin:0 0 4px"><span style="font-size:12.5px;font-weight:600">Persisted idempotency key</span><span style="display:inline-flex;align-items:center;gap:4px;padding:1px 7px;background:var(--color-text);color:var(--color-bg);font-size:10px">Chosen</span></div>
+            <div style="font-size:11.5px;line-height:1.5;color:var(--color-neutral-800)">The database enforces it — survives crashes.</div>
+          </div>
+          <div style="border-left:3px solid var(--color-accent);padding:2px 0 2px 12px;margin:0 0 16px"><div style="font-size:12.5px;line-height:1.5">“Make the state write and the send share one transaction.”</div><div style="font-size:10.5px;color:var(--color-neutral-700);margin:4px 0 0">@priya — requested changes</div></div>
+          <div style="background:var(--color-bg);border:1px solid var(--color-neutral-400);padding:12px 14px">
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:14px;line-height:1.35;margin:0 0 8px">Deduplicate in storage, not in memory.</div>
+            <span style="display:inline-flex;align-items:center;gap:4px;padding:1px 7px;background:var(--color-text);color:var(--color-bg);font-size:10px"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>Confirmed by you</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="flex:none;width:390px">
+      <div style="font-size:12px;color:var(--color-neutral-700);margin:0 0 10px;font-feature-settings:'tnum' 1">Check yourself + close · 390</div>
+      <div style="border:2px solid var(--color-text);background:var(--color-bg)">
+        <div style="padding:18px">
+          <div style="font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-neutral-700);margin:0 0 10px">Check yourself</div>
+          <div style="font-size:13.5px;font-weight:600;line-height:1.5;margin:0 0 10px">What prevents the duplicate send after a crash?</div>
+          <div style="display:grid;gap:8px">
+            <label class="radio" style="font-size:12.5px"><input type="radio" name="cjm-quiz"><span class="dot"></span>The worker mutex</label>
+            <label class="radio" style="font-size:12.5px"><input type="radio" name="cjm-quiz" defaultChecked="{{ true }}"><span class="dot"></span>The unique constraint in the transaction</label>
+            <label class="radio" style="font-size:12.5px"><input type="radio" name="cjm-quiz"><span class="dot"></span>The retry backoff</label>
+          </div>
+        </div>
+        <div style="background:var(--color-accent);color:var(--color-bg);padding:28px 18px 30px">
+          <div style="font-family:var(--font-heading);font-weight:800;font-size:24px;line-height:1.08;letter-spacing:-0.015em"><span style="display:block">Your next pull request</span><span style="display:block">should leave you with more</span><span style="display:block">than merged code.</span></div>
+          <p style="font-size:13px;line-height:1.55;margin:14px 0 0">Turn the work into something you can understand, explain and remember.</p>
+          <div style="background:var(--color-bg);color:var(--color-neutral-600);padding:13px 14px;font-size:13px;margin:20px 0 0;font-feature-settings:'tnum' 1">github.com/owner/repo/pull/456</div>
+          <button type="button" class="btn btn-block" style="background:var(--color-bg);color:var(--color-text);font-size:14px;padding:13px 14px;margin-top:10px">Create learning story</button>
+          <div style="display:flex;align-items:center;gap:6px;font-size:11px;margin:16px 0 0"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>Read-only. Nothing is published without you.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div style="height:2px;background:var(--color-divider)"></div>
+
+<section data-screen-label="Rationale" style="padding:56px 0 88px">
+  <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700)">09 · Why this supports trust, comprehension and learning</span>
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 48px;margin:32px 0 0">
+    <div style="border-top:2px solid var(--color-divider);padding:16px 0 0"><div style="font-size:15px;font-weight:600;margin:0 0 6px">Trust</div><p style="font-size:13.5px;line-height:1.65;color:var(--color-neutral-800);margin:0">Claims are falsifiable by construction: every factual sentence can carry an evidence chip, inference is dashed before it is anything else, and the strongest visual state on the page belongs to human confirmation. The scope promises — read-only, private, deletable — are shown as interface, not asserted as paragraphs.</p></div>
+    <div style="border-top:2px solid var(--color-divider);padding:16px 0 0"><div style="font-size:15px;font-weight:600;margin:0 0 6px">Comprehension</div><p style="font-size:13.5px;line-height:1.65;color:var(--color-neutral-800);margin:0">One story spine runs through the whole page — reported, weighed, reviewed, revised, merged, learned — and every artifact re-renders that same spine: strip, rail, map, prose. Plain language sits beside technical language, and every diagram has an equal structured-text form, so no single literacy is the price of entry.</p></div>
+    <div style="border-top:2px solid var(--color-divider);padding:16px 0 0"><div style="font-size:15px;font-weight:600;margin:0 0 6px">Learning</div><p style="font-size:13.5px;line-height:1.65;color:var(--color-neutral-800);margin:0">The design treats verification as the learning mechanism: correcting a draft, answering “why did this change?”, teaching the fix back, and meeting the lesson again later are all retrieval practice. AI drafts; the person confirms — and the interface makes the confirming feel like the point, not a chore.</p></div>
+  </div>
+</section>
+
+</main>
+</x-dc>
+</body>
+</html>
